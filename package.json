@@ -35,6 +35,7 @@
     "hapi": "^15.1.1",
     "hapi-auth-github": "^1.0.6",
     "hoek": "^4.1.0",
+    "inert": "^4.0.2",
     "jsonwebtoken": "^7.1.9"
   }
 }
