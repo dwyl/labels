@@ -38,3 +38,6 @@ jspm_packages
 
 # goodparts symlink
 .eslintrc.js
+
+# environment variables
+.env
