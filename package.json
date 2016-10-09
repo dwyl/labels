@@ -32,10 +32,12 @@
   },
   "dependencies": {
     "env2": "^2.1.1",
+    "handlebars": "^4.0.5",
     "hapi": "^15.1.1",
     "hapi-auth-github": "^1.0.6",
     "hoek": "^4.1.0",
     "inert": "^4.0.2",
-    "jsonwebtoken": "^7.1.9"
+    "jsonwebtoken": "^7.1.9",
+    "vision": "^4.1.0"
   }
 }
