@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <div class="label-form-wrapper">
   <div class="label-form-container">
-    <h2>Sync Your Labels</h2>
+    <h2>Hello {{name}}. Sync Your Labels.</h2>
     <form action="/" method="POST">
       <h3>Source repo</h3>
       <div class="copy">Copy labels from:</div>
-      <input class="input" type="text" name="sourceRepoOwner" placeholder="owner or organisation"/>
-      <br />
-      <input class="input" type="text" name="sourceRepoName" placeholder="repository name"/>
-      <br />
+      <input
+        class="input"
+        type="text"
+        name="sourceRepoOwner"
+        placeholder="Repository Owner"/>
+      <br/>
+      <input
+        class="input"
+        type="text"
+        name="sourceRepoName"
+        placeholder="Repository Name"
+      />
+      <br/>
       <h3>Target repo</h3>
       <div class="copy">Copy labels to:</div>
-      <input class="input" type="text" name="targetRepoOwner" placeholder="owner or organisation"/>
+      <input
+        class="input"
+        type="text"
+        name="targetRepoOwner"
+        placeholder="Repository Owner"
+      />
       <br />
-      <input class="input" type="text" name="targetRepoName" placeholder="repository name"/>
+      <input
+        class="input"
+        type="text"
+        name="targetRepoName"
+        placeholder="Repository Name"
+      />
       <br />
       <input class="sync-button" type="submit" value="SYNCHRONISE" />
     </form>
+    <br/>
+    <a href="/logout">Log Out</a>
   </div>
 </div>
 <style>
