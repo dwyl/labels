@@ -8,14 +8,21 @@
       <input
         class="input"
         type="text"
-        name="sourceRepoOwner"
-        placeholder="Repository Owner"/>
+        name="sourceOwner"
+        placeholder="Repository Owner"
+        {{#if sourceOwner}}
+          value={{sourceOwner}}
+        {{/if}}
+      />
       <br/>
       <input
         class="input"
         type="text"
-        name="sourceRepoName"
+        name="sourceRepo"
         placeholder="Repository Name"
+        {{#if sourceRepo}}
+          value={{sourceRepo}}
+        {{/if}}
       />
       <br/>
       <h3>Target repo</h3>
@@ -23,15 +30,21 @@
       <input
         class="input"
         type="text"
-        name="targetRepoOwner"
+        name="targetOwner"
         placeholder="Repository Owner"
+        {{#if targetOwner}}
+          value={{targetOwner}}
+        {{/if}}
       />
       <br />
       <input
         class="input"
         type="text"
-        name="targetRepoName"
+        name="targetRepo"
         placeholder="Repository Name"
+        {{#if targetRepo}}
+          value={{targetRepo}}
+        {{/if}}
       />
       <br />
       <input class="sync-button" type="submit" value="SYNCHRONISE" />
