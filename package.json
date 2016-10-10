@@ -8,7 +8,8 @@
     "test": "node_modules/.bin/tape ./test/*.test.js",
     "lint": "node_modules/.bin/goodparts .",
     "lint:fix": "node_modules/.bin/goodparts . --fix",
-    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/tape ./test/*.test.js"
+    "cover": "node_modules/.bin/istanbul cover node_modules/.bin/tape  ./test/*.test.js",
+    "check-coverage": "node_modules/.bin/istanbul check-coverage"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
   },
   "pre-commit": [
     "lint",
-    "coverage"
+    "cover",
+    "check-coverage"
   ],
   "author": "Jack Rans && Jack Carlisle",
   "license": "ISC",

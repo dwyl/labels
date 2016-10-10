@@ -3,9 +3,9 @@ instrumentation:
   root: ./lib
   excludes: []
   include-all-sources: true
-  check:
-    global:
-      branches   : 100
-      functions  : 100
-      lines      : 100
-      statements : 100
+check:
+  global:
+    branches   : 100
+    functions  : 100
+    lines      : 100
+    statements : 100
