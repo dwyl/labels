@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<div class="success-wrapper">
-  <div class="success-container">
-    <h2 class="success-title">Sync Successful!</h2>
-    <div>
-      <img class="success-icon" src="https://cloud.githubusercontent.com/assets/12450298/19214599/8150343c-8d7f-11e6-8afb-b67eee2b4854.png" />
-    </div>
-    <a class="success-link" href="https://github.com/{{targetOwner}}/{{targetRepo}}/labels">
-      <div class="success-button">View Labels</div>
-    </a>
-    <a class="success-link" href="/">
-      <div class="success-button">Sync Labels Again</div>
+<div class="fail-wrapper">
+  <div class="fail-container">
+    <h2 class="fail-title">Sync Failed!</h2>
+    <p>{{error}}</p>
+    <a class="fail-link" href="/">
+      <div class="fail-button">Retry Sync</div>
     </a>
     <a href="/logout">Log Out</a>
   </div>
 </div>
 <style>
-.success-wrapper {
+.fail-wrapper {
   text-align: center;
 }
-.success-container {
+.fail-container {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   border: 1px solid #16a085;
@@ -28,7 +23,7 @@
   padding-left: 5em;
   padding-right: 5em;
 }
-.success-button {
+.fail-button {
   color: #16a085;
   border: 1px solid #16a085;
   text-decoration: none;
@@ -44,12 +39,12 @@
   -webkit-transition: all .1s ease-in;
   transition: all .1s ease-in;
 }
-.success-button:hover {
+.fail-button:hover {
   background-color: #16a085;
   border: 1px solid #16a085;
   color: #ffffff;
 }
-.success-link {
+.fail-link {
   text-decoration: none;
 }
 h2 {
