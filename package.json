@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node lib/index.js",
     "test": "node_modules/.bin/tape ./test/*.test.js",
     "lint": "node_modules/.bin/goodparts .",
     "lint:fix": "node_modules/.bin/goodparts . --fix",
@@ -28,5 +29,14 @@
     "istanbul": "^0.4.5",
     "pre-commit": "^1.1.3",
     "tape": "^4.6.2"
+  },
+  "dependencies": {
+    "env2": "^2.1.1",
+    "handlebars": "^4.0.5",
+    "hapi": "^15.1.1",
+    "hapi-auth-github": "^2.0.0",
+    "hoek": "^4.1.0",
+    "jsonwebtoken": "^7.1.9",
+    "vision": "^4.1.0"
   }
 }

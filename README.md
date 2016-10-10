@@ -27,3 +27,28 @@ following fields:
 * list of target repos that you want to add labels to (one that you have access to)
 * GitHub username
 * GitHub password
+
+## Run
+
+#### Config
+
+You'll need to add the following configuration in order to run and login to the
+application locally:
+
+`export GITHUB_AUTH_REDIRECT_URL=/githubauth`
+
+We've included some optional configuration settings that you can set in your
+environment variables. These are `SOURCE_REPO` and `SOURCE_OWNER`.
+The reason we've added these options is to make it quick and easy to sync labels
+from a single source repository to multiple target repositories. Export them just
+as you did for the redirect url above:
+
+`export SOURCE_REPO=[your_source_repo_name]`  
+`export SOURCE_OWNER=[your_source_repo_owner]`
+
+#### To run:
+
+* `git clone https://github.com/dwyl/labels.git`
+* `cd labels`
+* `npm start`
+* visit http://localhost:8000/
