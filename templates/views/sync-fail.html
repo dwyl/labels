@@ -1,59 +1,11 @@
 <!DOCTYPE html>
-<div class="fail-wrapper">
-  <div class="fail-container">
-    <h2 class="fail-title">Sync Failed!</h2>
+<div class="wrapper">
+  <div class="container">
+    <h2>Sync Failed!</h2>
     <p>{{error}}</p>
-    <a class="fail-link" href="/">
-      <div class="fail-button">Retry Sync</div>
+    <a class="link" href="/">
+      <div class="button">Retry Sync</div>
     </a>
-    <a href="/logout">Log Out</a>
+    <a class="logout-button" href="/logout">Log Out</a>
   </div>
 </div>
-<style>
-.fail-wrapper {
-  text-align: center;
-}
-.fail-container {
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  border: 1px solid #16a085;
-  border-radius: 20px;
-  display: inline-block;
-  padding-bottom: 2em;
-  padding-left: 5em;
-  padding-right: 5em;
-}
-.fail-button {
-  color: #16a085;
-  border: 1px solid #16a085;
-  text-decoration: none;
-  font-size: 1em;
-  padding: 1em;
-  border: 1px solid;
-  border-radius: 500px;
-  background-color: white;
-  cursor: pointer;
-  margin-top: 3em;
-  -moz-transition: all .1s ease-in;
-  -o-transition: all .1s ease-in;
-  -webkit-transition: all .1s ease-in;
-  transition: all .1s ease-in;
-}
-.fail-button:hover {
-  background-color: #16a085;
-  border: 1px solid #16a085;
-  color: #ffffff;
-}
-.fail-link {
-  text-decoration: none;
-}
-h2 {
-  color: #16a085;
-  border: 1px solid;
-  padding: 0.3em;
-  border-radius: 500px;
-  display: inline-block;
-  padding-left: 2em;
-  padding-right: 2em;
-}
-</style>
