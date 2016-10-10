@@ -1,5 +1,7 @@
 # 🏷 Labels
 
+See it in action: https://label-sync.herokuapp.com/
+
 ## What?
 
 Gui application to copy labels from one repo to another.
@@ -12,7 +14,7 @@ labels to a new GitHub repository can become old, ***fast***. This module aims
 to **save you time** by automating the addition of labels to a new project by
 copying them from a selected repo and then transferring them to a target repo.
 
-Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a hosted version of the app if you don't want to configure/run the app yourself.
+Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a [hosted version](https://label-sync.herokuapp.com/) of the app if you don't want to configure/run the app yourself.
 
 ## Who?
 
