@@ -43,7 +43,7 @@ The reason we've added these options is to make it quick and easy to sync labels
 from a single source repository to multiple target repositories. Export them just
 as you did for the redirect url above:
 
-`export SOURCE_REPO=[your_source_repo_name]`
+`export SOURCE_REPO=[your_source_repo_name]`  
 `export SOURCE_OWNER=[your_source_repo_owner]`
 
 #### To run:
