@@ -6,7 +6,10 @@ var nock = require('nock');
 
 var mustContain = require('./must_contain.js');
 var findSetCookies = require('./find_set_cookies.js');
+var fakeReply = require('./fake_reply.js');
+
 var server = require('../lib/');
+var home = require('../lib/home.js');
 
 var testSessionToken = JWT.sign({
   name: 'testy mctestyface',
@@ -15,7 +18,14 @@ var testSessionToken = JWT.sign({
   token: 'testToken'
 }, process.env.JWT_SECRET);
 
-test('home not logged in : no session', function (t) {
+var testFormData = {
+  sourceOwner: 'source',
+  sourceRepo: 'repo',
+  targetOwner: 'target',
+  targetRepo: 'repo'
+};
+
+test('/ : not logged in : no session', function (t) {
   server.inject(
     { method: 'GET', url: '/', headers: { cookie: 'token=gibberish' } },
     function (response) {
@@ -26,7 +36,7 @@ test('home not logged in : no session', function (t) {
   );
 });
 
-test('home : not logged in : weird session', function (t) {
+test('/ : not logged in : weird session', function (t) {
   server.inject({ method: 'GET', url: '/' }, function (response) {
     t.equal(response.statusCode, 302, 'redirect to home with session');
     t.equal(response.headers.location, './login', 'redirects to home');
@@ -34,7 +44,7 @@ test('home : not logged in : weird session', function (t) {
   });
 });
 
-test('login : not logged in', function (t) {
+test('/login : not logged in', function (t) {
   server.inject({ method: 'GET', url: '/login' }, function (response) {
     t.equal(response.statusCode, 200, 'make it to login');
     t.end();
@@ -42,7 +52,7 @@ test('login : not logged in', function (t) {
 });
 
 
-test('login : logged in', function (t) {
+test('/login : logged in', function (t) {
   server.inject(
     {
       method: 'GET',
@@ -57,7 +67,7 @@ test('login : logged in', function (t) {
   );
 });
 
-test('home : logged in : no previous use', function (t) {
+test('/ : logged in : no previous use', function (t) {
   process.env.SOURCE_REPO = 'TEST_SOURCE_REPO';
   process.env.SOURCE_OWNER = 'TEST_SOURCE_OWNER';
 
@@ -81,7 +91,22 @@ test('home : logged in : no previous use', function (t) {
   );
 });
 
-test('post /: logged in: invalid source repo', function (t) {
+// not testing the handler directly as having trouble setting mutliple cookies
+test('home handler : with last cookie', function (t) {
+  var reply = fakeReply();
+
+  home({ state: { last: testFormData } }, reply);
+
+  t.deepEqual(
+    reply.getCalls(),
+    [{ method: 'view', args: ['label-sync', testFormData] }],
+    'correct view and args given'
+  );
+
+  t.end();
+});
+
+test('/ : post : logged in: invalid source repo', function (t) {
   nock('https://api.github.com')
     .matchHeader('User-Agent', 'testAgent')
     .matchHeader('Authorization', 'token testToken')
@@ -111,7 +136,7 @@ test('post /: logged in: invalid source repo', function (t) {
   );
 });
 
-test('post /: logged in: valid source repo with 2 labels', function (t) {
+test('/ : post : logged in: valid source repo with 2 labels', function (t) {
   nock('https://api.github.com')
     .get('/repos/source/repo/labels')
     .reply(200, [
@@ -129,12 +154,7 @@ test('post /: logged in: valid source repo with 2 labels', function (t) {
       method: 'POST',
       url: '/',
       headers: { cookie: 'token=' + testSessionToken },
-      payload: {
-        sourceOwner: 'source',
-        sourceRepo: 'repo',
-        targetOwner: 'target',
-        targetRepo: 'repo'
-      }
+      payload: testFormData
     },
     function (response) {
       t.equal(response.statusCode, 200, 'correct headers given to gh post');
@@ -150,7 +170,7 @@ test('post /: logged in: valid source repo with 2 labels', function (t) {
 });
 
 
-test('logout', function (t) {
+test('/logout', function (t) {
   server.inject(
     {
       method: 'GET',
