@@ -61,19 +61,9 @@ Enter these commands into your terminal:
 
 ## Labels
 
-You can see all of the labels that we use in dwyl projects here, with an explanation of each below: http://www.github.com/dwyl/labels/labels
+This repository contains our 'master list' of labels used across all dwyl projects: http://www.github.com/dwyl/labels/labels
 
-Github gives you a pre-populated list of labels for you to use. They are:
-
-- `bug` #EE0701 - report a bug that needs fixed
-- `duplicate` #CCCCCC - duplicate issue
-- `enhancement` #84B6EB - improving existing code
-- `help-wanted` #128A0C - looking for help or expertise on a subject
-- `invalid` #E6E6E6 - GitHub standard tag (not used)
-- `question` #CC317C - for open questions and discussions
-- `wontfix` #ffffff - when an issue won't be addressed (with reason why in comment)
-
-Here are the custom ones that we use at dwyl:
+An explanation of each can be found below, starting with the custom labels we use at dwyl:
 
 - `in-progress` #009688 - to be added when an issue has been assigned
 - `in-review` #128A0C - once a PR has been submitted relating to the issue
@@ -86,6 +76,16 @@ Here are the custom ones that we use at dwyl:
 - `T[x]d` #F06292 - time in 'x' days it should take (estimation)
 - `T[x]h` #F7C6C7 - time in 'x' hours it should take (estimation)
 - `technical` #D4C5F9 - technical issue for developers
+
+Github also gives you a pre-populated list of labels with every repo:
+
+- `bug` #EE0701 - report a [bug](https://en.wikipedia.org/wiki/Software_bug), not to be confused with a request for additional changes to the code
+- `duplicate` #CCCCCC - duplicate issue (link to duplicate in comments)
+- `enhancement` #84B6EB - improving existing code
+- `help-wanted` #128A0C - looking for help or expertise on a subject
+- `invalid` #E6E6E6 - issue is not valid (not used in dwyl)
+- `question` #CC317C - for open questions
+- `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case)
 
 
 ## Questions/Suggestions
