@@ -63,19 +63,22 @@ Enter these commands into your terminal:
 
 This repository contains our 'master list' of labels used across all dwyl projects: http://www.github.com/dwyl/labels/labels
 
-An explanation of each can be found below, starting with the custom labels we use at dwyl:
+An explanation of each can be found below, starting with the custom dwyl labels, which we use in conjunction with our [contributing process/guidelines](http://www.github.com/dwyl/contributing) :
 
-- `in-progress` #009688 - to be added when an issue has been assigned
+- `chore` #3A2716 - routine tasks that must be done for every project but require little active brain power
+- `discuss` #60EEEE - invites discussion from contributors
+- `epic` #000059 - big issues that span multiple days & need to be broken down
+- `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
 - `in-review` #128A0C - once a PR has been submitted relating to the issue
-- `please-test` #08E700 - added after PR is merged (assign to product owner)
-- `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ neccessary)
+- `please-test` #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
+- `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ necessary)
 - `priority-2` #1976D2 - high priority issue (what needs doing now)
 - `priority-3` #42A5F5 - high priority (what needs doing next)
 - `priority-4` #8DC9F9 - low priority (to be upgraded later)
-- `priority-5` #C5DEF5 - lowest priority (non-urgent changes)
-- `T[x]d` #F06292 - time in 'x' days it should take (estimation)
-- `T[x]h` #F7C6C7 - time in 'x' hours it should take (estimation)
-- `technical` #D4C5F9 - technical issue for developers
+- `priority-5` #C5DEF5 - lowest priority (non-urgent changes and backlog ideas)
+- `T[x]d` #F06292 - Estimated time in 'x' days the issue should take to resolve
+- `T[x]h` #F7C6C7 - Estimated time in 'x' hours the issue should take to resolve
+- `technical` #D4C5F9 - technical tasks e.g. deployment
 
 Github also gives you a pre-populated list of labels with every repo:
 
