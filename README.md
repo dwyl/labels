@@ -63,21 +63,23 @@ Enter these commands into your terminal:
 
 This repository contains our 'master list' of labels used across all dwyl projects: http://www.github.com/dwyl/labels/labels
 
-An explanation of each can be found below, starting with the custom dwyl labels, which we use in conjunction with our [contributing process/guidelines](http://www.github.com/dwyl/contributing) :
+An explanation of each can be found below, starting with the custom dwyl labels, which we use in conjunction with our [contributing process/guidelines](http://www.github.com/dwyl/contributing).
 
-- `chore` #3A2716 - routine tasks that must be done for every project but require little active brain power
-- `discuss` #60EEEE - invites discussion from contributors
-- `epic` #000059 - big issues that span multiple days & need to be broken down
+Clicking on a label will take you to an issue with further discussion on its existence and meaning:
+
+- [`chore`](https://github.com/dwyl/labels/issues/37) #3A2716 - routine tasks that must be done for every project but require little active brain power
+- [`discuss`](https://github.com/dwyl/labels/issues/8) #60EEEE - invites discussion from contributors
+- [`epic`](https://github.com/dwyl/labels/issues/35) #000059 - big issues that span multiple days & need to be broken down
 - `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
 - `in-review` #128A0C - once a PR has been submitted relating to the issue
-- `please-test` #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
+- [`please-test`](https://github.com/dwyl/labels/issues/46) #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
 - `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ necessary)
 - `priority-2` #1976D2 - high priority issue (what needs doing now)
 - `priority-3` #42A5F5 - high priority (what needs doing next)
 - `priority-4` #8DC9F9 - low priority (to be upgraded later)
 - `priority-5` #C5DEF5 - lowest priority (non-urgent changes and backlog ideas)
-- `T[x]d` #F06292 - Estimated time in 'x' days the issue should take to resolve
-- `T[x]h` #F7C6C7 - Estimated time in 'x' hours the issue should take to resolve
+- [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - Estimated time in 'x' days the issue will take to resolve
+- [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - Estimated time in 'x' hours the issue will take to resolve
 - `technical` #D4C5F9 - technical tasks e.g. deployment
 
 Github also gives you a pre-populated list of labels with every repo:
@@ -95,6 +97,6 @@ Github also gives you a pre-populated list of labels with every repo:
 
 We hope you find the application useful! We really want to make the process of setting up a repo as fast as possible so hope this helps.
 
-If you need something cleared up, have any requests or want to offer any improvements then please [create an issue](https://github.com/dwyl/labels/issues/new) or better yet a PR!
+If you need something cleared up, have any requests or want to offer any improvements then please [create an issue](https://github.com/dwyl/labels/issues/new).
 
  **Note** It also would be great to hear, via issue, your thoughts on our existing set of labels plus your own favourites :smiley:
