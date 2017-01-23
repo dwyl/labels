@@ -67,11 +67,12 @@ An explanation of each can be found below, starting with the custom dwyl labels,
 
 Clicking on a label will take you to an issue with further discussion on its existence and meaning:
 
+- [`awaiting-review`](https://github.com/dwyl/labels/issues/49) #f39c12 - added to _issue_ once a PR with its resolution has been assigned to a reviewer (replaces `in-progress`)
 - [`chore`](https://github.com/dwyl/labels/issues/37) #3A2716 - routine tasks that must be done for every project but require little active brain power
 - [`discuss`](https://github.com/dwyl/labels/issues/8) #60EEEE - invites discussion from contributors
 - [`epic`](https://github.com/dwyl/labels/issues/35) #000059 - big issues that span multiple days & need to be broken down
 - `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
-- `in-review` #128A0C - once a PR has been submitted relating to the issue
+- [`in-review`](https://github.com/dwyl/labels/issues/48) #128A0C - added to _PR_ by QA/reviewer to show a review is *in progress*
 - [`please-test`](https://github.com/dwyl/labels/issues/46) #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
 - `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ necessary)
 - `priority-2` #1976D2 - high priority issue (what needs doing now)
@@ -81,6 +82,7 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - Estimated time in 'x' days the issue will take to resolve
 - [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - Estimated time in 'x' hours the issue will take to resolve
 - `technical` #D4C5F9 - technical tasks e.g. deployment
+- [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 - denotes administrative usually for [non-developers](https://www.amazon.co.uk/Virtual-Freedom-Chris-C-Ducker/dp/1939529743)
 
 Github also gives you a pre-populated list of labels with every repo:
 
