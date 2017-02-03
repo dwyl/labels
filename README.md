@@ -59,10 +59,46 @@ Enter these commands into your terminal:
 * `npm start`
 * Visit http://localhost:8000/ (or port you have selected)
 
+## Labels
+
+This repository contains our 'master list' of labels used across all dwyl projects: http://www.github.com/dwyl/labels/labels
+
+An explanation of each can be found below, starting with the custom dwyl labels, which we use in conjunction with our [contributing process/guidelines](http://www.github.com/dwyl/contributing).
+
+Clicking on a label will take you to an issue with further discussion on its existence and meaning:
+
+- [`awaiting-review`](https://github.com/dwyl/labels/issues/49) #f39c12 - added to _issue_ once a PR with its resolution has been assigned to a reviewer (replaces `in-progress`)
+- [`chore`](https://github.com/dwyl/labels/issues/37) #3A2716 - routine tasks that must be done for every project but require little active brain power
+- [`discuss`](https://github.com/dwyl/labels/issues/8) #60EEEE - invites discussion from contributors
+- [`epic`](https://github.com/dwyl/labels/issues/35) #000059 - big issues that span multiple days & need to be broken down
+- `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
+- [`in-review`](https://github.com/dwyl/labels/issues/48) #128A0C - added to _PR_ by QA/reviewer to show a review is *in progress*
+- [`please-test`](https://github.com/dwyl/labels/issues/46) #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
+- `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ necessary)
+- `priority-2` #1976D2 - high priority issue (what needs doing now)
+- `priority-3` #42A5F5 - high priority (what needs doing next)
+- `priority-4` #8DC9F9 - low priority (to be upgraded later)
+- `priority-5` #C5DEF5 - lowest priority (non-urgent changes and backlog ideas)
+- [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - Estimated time in 'x' days the issue will take to resolve
+- [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - Estimated time in 'x' hours the issue will take to resolve
+- `technical` #D4C5F9 - technical tasks e.g. deployment
+- [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 - denotes administrative usually for [non-developers](https://www.amazon.co.uk/Virtual-Freedom-Chris-C-Ducker/dp/1939529743)
+
+Github also gives you a pre-populated list of labels with every repo:
+
+- `bug` #EE0701 - report a [bug](https://en.wikipedia.org/wiki/Software_bug), not to be confused with a request for additional changes to the code
+- `duplicate` #CCCCCC - duplicate issue (link to duplicate in comments)
+- `enhancement` #84B6EB - improving existing code
+- `help-wanted` #128A0C - looking for help or expertise on a subject
+- `invalid` #E6E6E6 - issue is not valid (not used in dwyl)
+- `question` #CC317C - for open questions
+- `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case)
+
+
 ## Questions/Suggestions
 
 We hope you find the application useful! We really want to make the process of setting up a repo as fast as possible so hope this helps.
 
-If you need something cleared up, have any requests or want to offer any improvements then please [create an issue](https://github.com/dwyl/labels/issues/new) or better yet a PR!
+If you need something cleared up, have any requests or want to offer any improvements then please [create an issue](https://github.com/dwyl/labels/issues/new).
 
  **Note** It also would be great to hear, via issue, your thoughts on our existing set of labels plus your own favourites :smiley:
