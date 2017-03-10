@@ -71,6 +71,7 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`chore`](https://github.com/dwyl/labels/issues/37) #3A2716 - routine tasks that must be done for every project but require little active brain power
 - [`discuss`](https://github.com/dwyl/labels/issues/8) #60EEEE - invites discussion from contributors
 - [`epic`](https://github.com/dwyl/labels/issues/35) #000059 - big issues that span multiple days & need to be broken down
+- [`external-dependency`](https://github.com/dwyl/labels/issues/54) #e6e6e6 - no further work can be carried out until a third party completes an action (specified in a comment in the issue)
 - `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
 - [`in-review`](https://github.com/dwyl/labels/issues/48) #128A0C - added to _PR_ by QA/reviewer to show a review is *in progress*
 - [`please-test`](https://github.com/dwyl/labels/issues/46) #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
