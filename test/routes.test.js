@@ -127,7 +127,7 @@ test('/ : post : logged in: invalid source repo', function (t) {
     function (response) {
       t.equal(response.statusCode, 200, 'correct headers given to gh');
       t.ok(mustContain(response, [
-        'Reponotfound'
+        'reponotfound'
       ]), 'invalid source repo gives error page');
       t.equal(findSetCookies(response)[0].name, 'last', 'last cookie set');
 
@@ -161,6 +161,35 @@ test('/ : post : logged in: valid source repo with 2 labels', function (t) {
       t.ok(mustContain(response, [
         'SyncSuccessful!',
         'https://github.com/target/repo/labels'
+      ]), 'sync successful message, link to target repo given');
+      t.equal(findSetCookies(response)[0].name, 'last', 'last cookie set');
+
+      t.end();
+    }
+  );
+});
+
+test('/ : post : logged in: valid source repo with 2 labels', function (t) {
+  nock('https://api.github.com')
+    .get('/repos/source/repo/labels')
+    .reply(200, { message: 'Not Found' })
+    .post('/repos/target/repo/labels', function (body) {
+      return body.name && body.color && Object.keys(body).length === 2;
+    })
+    .times(2)
+    .reply(200, { all: 'cool', whatever: 'i am', for: 'now!' })
+  ;
+  server.inject(
+    {
+      method: 'POST',
+      url: '/',
+      headers: { cookie: 'token=' + testSessionToken },
+      payload: testFormData
+    },
+    function (response) {
+      t.equal(response.statusCode, 200, 'correct headers given to gh post');
+      t.ok(mustContain(response, [
+        'SyncFail'
       ]), 'sync successful message, link to target repo given');
       t.equal(findSetCookies(response)[0].name, 'last', 'last cookie set');
 
