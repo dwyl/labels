@@ -74,6 +74,7 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`external-dependency`](https://github.com/dwyl/labels/issues/54) #e6e6e6 - no further work can be carried out until a third party completes an action (specified in a comment in the issue)
 - `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
 - [`in-review`](https://github.com/dwyl/labels/issues/48) #128A0C - added to _PR_ by QA/reviewer to show a review is *in progress*
+- [`merge-conflicts`](https://github.com/dwyl/labels/issues/26) #E74C3C - added to a _PR_ when it has merge conflicts that need to be fixed by the PR's creator
 - [`please-test`](https://github.com/dwyl/labels/issues/46) #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
 - `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ necessary)
 - `priority-2` #1976D2 - high priority issue (what needs doing now)
