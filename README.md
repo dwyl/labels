@@ -82,9 +82,10 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - `priority-4` #8DC9F9 - low priority (to be upgraded later)
 - `priority-5` #C5DEF5 - lowest priority (non-urgent changes and backlog ideas)
 - [`starter`](https://github.com/dwyl/labels/issues/36) #27AE60 - issues that those with not much coding experience can contribute to
-- [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - Estimated time in 'x' days the issue will take to resolve
-- [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - Estimated time in 'x' hours the issue will take to resolve
+- [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - estimated time in 'x' days the issue will take to resolve
+- [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - estimated time in 'x' hours the issue will take to resolve
 - `technical` #D4C5F9 - technical tasks e.g. deployment
+- [`user-feedback`](https://github.com/dwyl/labels/issues/61) #E91E63 - requests or features that have been added to the backlog as a direct result of user testing
 - [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 - denotes administrative usually for [non-developers](https://www.amazon.co.uk/Virtual-Freedom-Chris-C-Ducker/dp/1939529743)
 
 Github also gives you a pre-populated list of labels with every repo:
