@@ -74,15 +74,18 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`external-dependency`](https://github.com/dwyl/labels/issues/54) #e6e6e6 - no further work can be carried out until a third party completes an action (specified in a comment in the issue)
 - `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
 - [`in-review`](https://github.com/dwyl/labels/issues/48) #128A0C - added to _PR_ by QA/reviewer to show a review is *in progress*
+- [`merge-conflicts`](https://github.com/dwyl/labels/issues/26) #E74C3C - added to a _PR_ when it has merge conflicts that need to be fixed by the PR's creator
 - [`please-test`](https://github.com/dwyl/labels/issues/46) #08E700 - added after PR is merged *and* the feature/fix/change has been deployed to *somewhere the Product Owner can actually **test** it* (assign issue to PO)
 - `priority-1` #0D47A1 - drop everything and work on this (used only when _completely_ necessary)
 - `priority-2` #1976D2 - high priority issue (what needs doing now)
 - `priority-3` #42A5F5 - high priority (what needs doing next)
 - `priority-4` #8DC9F9 - low priority (to be upgraded later)
 - `priority-5` #C5DEF5 - lowest priority (non-urgent changes and backlog ideas)
-- [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - Estimated time in 'x' days the issue will take to resolve
-- [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - Estimated time in 'x' hours the issue will take to resolve
+- [`starter`](https://github.com/dwyl/labels/issues/36) #27AE60 - issues that those with not much coding experience can contribute to
+- [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - estimated time in 'x' days the issue will take to resolve
+- [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - estimated time in 'x' hours the issue will take to resolve
 - `technical` #D4C5F9 - technical tasks e.g. deployment
+- [`user-feedback`](https://github.com/dwyl/labels/issues/61) #E91E63 - requests or features that have been added to the backlog as a direct result of user testing
 - [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 - denotes administrative usually for [non-developers](https://www.amazon.co.uk/Virtual-Freedom-Chris-C-Ducker/dp/1939529743)
 
 Github also gives you a pre-populated list of labels with every repo:
