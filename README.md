@@ -18,7 +18,7 @@ Our main criteria is that it ***MUST*** be quicker than manually adding labels a
 
 ## Who?
 
-Any developer who has created multiple repositories and values their time ⏰
+Any Github user who has created multiple repositories and values their time ⏰
 
 ## How?
 A simple and intuitive UI authenticated with GitHub using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) and make requests to the github api on your behalf.
@@ -26,6 +26,13 @@ A simple and intuitive UI authenticated with GitHub using [hapi-auth-github](htt
 After authentication via github login a user will simply have to submit a form with the following fields.
  + Source repo name and owner
  + Target repo name and owner
+
+### What happens to existing labels in target repo?
+Labels is _non-destructive_.  
+If there are existing labels with the same name but a different colour,
+the colour will change to match the source repo.  
+Other than this, it will simply add any repos that don't already exist and
+won't touch existing labels.
 
 ## Run
 
@@ -58,6 +65,7 @@ Enter these commands into your terminal:
 * :arrow_up: Make sure you have your `.env` file and all the required variables :arrow_up:.
 * `npm start`
 * Visit http://localhost:8000/ (or port you have selected)
+
 
 ## Labels
 
@@ -96,7 +104,7 @@ Github also gives you a pre-populated list of labels with every repo:
 - `help-wanted` #128A0C - looking for help or expertise on a subject
 - `invalid` #E6E6E6 - issue is not valid (not used in dwyl)
 - `question` #CC317C - for open questions
-- `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case)
+- `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case
 
 
 ## Questions/Suggestions
