@@ -103,7 +103,8 @@ Github also gives you a pre-populated list of labels with every repo:
 - `bug` #EE0701 - report a [bug](https://en.wikipedia.org/wiki/Software_bug), not to be confused with a request for additional changes to the code
 - `duplicate` #CCCCCC - duplicate issue (link to duplicate in comments)
 - `enhancement` #84B6EB - improving existing code
-- `help-wanted` #128A0C - looking for help or expertise on a subject
+- `help-wanted` #128A0C - signals author of the issue is looking for help or expertise on a subject
+_(NB. if you'd like to see where dwyl is in need of a helping hand, check out https://tudo-app.herokuapp.com/)_
 - `invalid` #E6E6E6 - issue is not valid (not used in dwyl)
 - `question` #CC317C - for open questions
 - `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case
