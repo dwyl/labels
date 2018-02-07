@@ -18,7 +18,7 @@ Our main criteria is that it ***MUST*** be quicker than manually adding labels a
 
 ## Who?
 
-Any developer who has created multiple repositories and values their time ⏰
+Any Github user who has created multiple repositories and values their time ⏰
 
 ## How?
 A simple and intuitive UI authenticated with GitHub using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) and make requests to the github api on your behalf.
@@ -26,6 +26,13 @@ A simple and intuitive UI authenticated with GitHub using [hapi-auth-github](htt
 After authentication via github login a user will simply have to submit a form with the following fields.
  + Source repo name and owner
  + Target repo name and owner
+
+### What happens to existing labels in target repo?
+Labels is _non-destructive_.  
+If there are existing labels with the same name but a different colour,
+the colour will change to match the source repo.  
+Other than this, it will simply add any repos that don't already exist and
+won't touch existing labels.
 
 ## Run
 
@@ -59,6 +66,7 @@ Enter these commands into your terminal:
 * `npm start`
 * Visit http://localhost:8000/ (or port you have selected)
 
+
 ## Labels
 
 This repository contains our 'master list' of labels used across all dwyl projects: http://www.github.com/dwyl/labels/labels
@@ -86,17 +94,20 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - estimated time in 'x' hours the issue will take to resolve
 - `technical` #D4C5F9 - technical tasks e.g. deployment
 - [`user-feedback`](https://github.com/dwyl/labels/issues/61) #E91E63 - requests or features that have been added to the backlog as a direct result of user testing
-- [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 - denotes administrative usually for [non-developers](https://www.amazon.co.uk/Virtual-Freedom-Chris-C-Ducker/dp/1939529743)
+- [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 -
+denotes administrative tasks that can be done by 'Virtual Assistants',
+usually for [non-developers](https://www.amazon.co.uk/Virtual-Freedom-Chris-C-Ducker/dp/1939529743)
 
 Github also gives you a pre-populated list of labels with every repo:
 
 - `bug` #EE0701 - report a [bug](https://en.wikipedia.org/wiki/Software_bug), not to be confused with a request for additional changes to the code
 - `duplicate` #CCCCCC - duplicate issue (link to duplicate in comments)
 - `enhancement` #84B6EB - improving existing code
-- `help-wanted` #128A0C - looking for help or expertise on a subject
+- `help-wanted` #128A0C - signals author of the issue is looking for help or expertise on a subject
+_(NB. if you'd like to see where dwyl is in need of a helping hand, check out https://tudo-app.herokuapp.com/)_
 - `invalid` #E6E6E6 - issue is not valid (not used in dwyl)
 - `question` #CC317C - for open questions
-- `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case)
+- `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case
 
 
 ## Questions/Suggestions
