@@ -36,7 +36,7 @@
   "dependencies": {
     "env2": "^2.1.1",
     "handlebars": "^4.0.5",
-    "hapi": "^15.1.1",
+    "hapi": "^18.1.0",
     "hapi-auth-github": "^2.0.0",
     "hoek": "^4.1.0",
     "jsonwebtoken": "^7.1.9",
