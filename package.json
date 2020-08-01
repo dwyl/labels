@@ -41,5 +41,8 @@
     "hoek": "^4.1.0",
     "jsonwebtoken": "^7.1.9",
     "vision": "^4.1.0"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
