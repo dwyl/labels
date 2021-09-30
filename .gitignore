@@ -41,3 +41,7 @@ jspm_packages
 
 # environment variables
 .env
+
+# noise
+package-lock.json
+.DS_Store

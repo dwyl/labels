@@ -89,6 +89,7 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - `priority-3` #42A5F5 - high priority (what needs doing next)
 - `priority-4` #8DC9F9 - low priority (to be upgraded later)
 - `priority-5` #C5DEF5 - lowest priority (non-urgent changes and backlog ideas)
+- `research` #82f2d6 - additional research required to make progress on a story/task. Be specific in the issue description/comment.
 - [`starter`](https://github.com/dwyl/labels/issues/36) #27AE60 - issues that those with not much coding experience can contribute to
 - [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - estimated time in 'x' days the issue will take to resolve
 - [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - estimated time in 'x' hours the issue will take to resolve
