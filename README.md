@@ -17,9 +17,22 @@ copying them from a selected repo and then transferring them to a target repo.
 Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a [hosted version](https://label-sync.herokuapp.com/) of the app if you don't want to configure/run the app yourself.
 
 At dwyl we intensively use labels on issues and pull requests to communicate about the status of the work for each team member of our project.
-We are working remotely and the labels allow us to quickly know who took responsibilities on an issue and what progress they are at. For example we can quickly now from the list of issues on a repository if someone is working on a specific issue (`in-progress` label), if an issue is finished but waiting for review (`in-review` label) or if an issue is currently reviewed (`in-review` label), see the [list of labels and their description](https://github.com/dwyl/labels#labels).
+We are working remotely and the labels allow us
+to quickly know who took responsibilities on an issue 
+and what progress they are at. 
+For example we can quickly see 
+from the list of issues on a repository 
+if someone is working on a specific issue (`in-progress` label), 
+if an issue is finished but waiting for review (`in-review` label) 
+or if an issue is currently reviewed (`in-review` label), 
+see the [list of labels and their description](https://github.com/dwyl/labels#labels).
 
-This process really allows us to speed up some projects and let us focus on developing features instead of spending time on Gitter/Slack explaining the status of an issue. It allows also to communicate quickly with our clients as they know when to tests and approve/reject a feature with the label `please-test`.
+This process streamlines communication 
+and allows us focus on developing features 
+instead of spending time on "chat" 
+explaining the status of an issue. 
+It allows also to communicate quickly with our clients 
+as they know when to test and approve/reject a feature with the label **`please-test`**.
 
 ## Who?
 
