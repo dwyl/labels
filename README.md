@@ -1,6 +1,6 @@
 # 🏷 Labels
 
-See it in action: https://label-sync.herokuapp.com/
+See it in action: https://label-sync.herokuapp.com
 
 ## What?
 
@@ -14,7 +14,9 @@ labels to a new GitHub repository can become old, ***fast***. This module aims
 to **save you time** by automating the addition of labels to a new project by
 copying them from a selected repo and then transferring them to a target repo.
 
-Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a [hosted version](https://label-sync.herokuapp.com/) of the app if you don't want to configure/run the app yourself.
+Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a 
+[hosted version](https://label-sync.herokuapp.com/) 
+of the app if you don't want to configure/run the app yourself.
 
 At **`dwyl`** we intensively use labels on issues and pull requests 
 to communicate about the status of the work 
@@ -41,13 +43,17 @@ as they know when to test and approve/reject a feature with the label **`please-
 Any Github user who has created multiple repositories and values their time ⏰
 
 ## How?
-A simple and intuitive UI authenticated with GitHub using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) and make requests to the github api on your behalf.
+
+A simple and intuitive UI authenticated with GitHub using 
+[hapi-auth-github](https://github.com/dwyl/hapi-auth-github) 
+and make requests to the github api on your behalf.
 
 After authentication via github login a user will simply have to submit a form with the following fields.
  + Source repo name and owner
  + Target repo name and owner
 
 ### What happens to existing labels in target repo?
+
 Labels is _non-destructive_.  
 If there are existing labels with the same name but a different colour,
 the colour will change to match the source repo.  
@@ -56,9 +62,11 @@ won't touch the existing ones.
 
 ## Run
 
+
 #### Config
 
-Since we are using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) you will need to follow some of their setup to run the project locally.
+Since we are using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) 
+you will need to follow some of their setup to run the project locally.
  + You need to create a new oauth application in your github but please see 
  [hapi-auth-github](https://github.com/dwyl/hapi-auth-github#2-create-an-app-on-github) for details.
  + You will need to create a 
