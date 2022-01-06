@@ -16,10 +16,12 @@ copying them from a selected repo and then transferring them to a target repo.
 
 Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a [hosted version](https://label-sync.herokuapp.com/) of the app if you don't want to configure/run the app yourself.
 
-At dwyl we intensively use labels on issues and pull requests to communicate about the status of the work for each team member of our project.
-We are working remotely and the labels allow us
-to quickly know who took responsibilities on an issue 
-and what progress they are at. 
+At **`dwyl`** we intensively use labels on issues and pull requests 
+to communicate about the status of the work 
+for each team member of our project.
+We work remotely and the labels allow us
+to quickly know who took responsibility on an issue 
+and what progress they have made. 
 For example we can quickly see 
 from the list of issues on a repository 
 if someone is working on a specific issue (`in-progress` label), 
@@ -57,9 +59,13 @@ won't touch the existing ones.
 #### Config
 
 Since we are using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) you will need to follow some of their setup to run the project locally.
- + You need to create a new oauth application in your github but please see [hapi-auth-github](https://github.com/dwyl/hapi-auth-github#2-create-an-app-on-github) for details.
- + You will need to create a [.env](https://github.com/dwyl/learn-environment-variables) file root or project of the form:
-```
+ + You need to create a new oauth application in your github but please see 
+ [hapi-auth-github](https://github.com/dwyl/hapi-auth-github#2-create-an-app-on-github) for details.
+ + You will need to create a 
+ [.env](https://github.com/dwyl/learn-environment-variables) 
+ file root or project of the form:
+
+```sh
 GITHUB_CLIENT_ID=see_hapi-auth-github
 GITHUB_CLIENT_SECRET=see_hapi-auth-github
 BASE_URL=see_hapi-auth-github
@@ -69,7 +75,9 @@ GITHUB_AUTH_REDIRECT_URL=see_hapi-auth-github
 SOURCE_REPO=optional
 SOURCE_OWNER=optional
 ```
-As we use  we will need all the environment variables [required](https://github.com/dwyl/hapi-auth-github#3-export-the-required-environment-variables) for that module plus our own optional:
+As we use  we will need all the environment variables 
+[required](https://github.com/dwyl/hapi-auth-github#3-export-the-required-environment-variables) 
+for that module plus our own optional:
   + `SOURCE_REPO` defaults the value of the source repo in form.
   + `SOURCE_OWNER`defaults the value of the source owner in form.
 
@@ -87,9 +95,13 @@ Enter these commands into your terminal:
 
 ## Labels
 
-This repository contains our 'master list' of labels used across all dwyl projects: http://www.github.com/dwyl/labels/labels
+This repository contains our 'master list' of labels used across all dwyl projects: 
+[http://www.github.com/dwyl/labels/labels](github.com/dwyl/labels/labels)
 
-An explanation of each can be found below, starting with the custom dwyl labels, which we use in conjunction with our [contributing process/guidelines](http://www.github.com/dwyl/contributing).
+An explanation of each can be found below, 
+starting with the custom dwyl labels, 
+which we use in conjunction with our 
+[contributing process/guidelines](http://www.github.com/dwyl/contributing).
 
 Clicking on a label will take you to an issue with further discussion on its existence and meaning:
 
@@ -112,6 +124,8 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`T[x]d`](https://github.com/dwyl/labels/issues/41) #F06292 - estimated time in 'x' days the issue will take to resolve
 - [`T[x]h`](https://github.com/dwyl/labels/issues/41) #F7C6C7 - estimated time in 'x' hours the issue will take to resolve
 - `technical` #D4C5F9 - technical tasks e.g. deployment
+- [`tech-debt`](https://github.com/dwyl/labels/issues/101) #FF3636 - A feature/requirement implemented in a sub-optimal way & must be re-written. 
+  see: [What is Technical Debt?](https://github.com/dwyl/product-owner-guide#what-is-technical-debt)
 - [`user-feedback`](https://github.com/dwyl/labels/issues/61) #E91E63 - requests or features that have been added to the backlog as a direct result of user testing
 - [`va-task`](https://github.com/dwyl/labels/issues/50) #128214 -
 denotes administrative tasks that can be done by 'Virtual Assistants',
