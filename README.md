@@ -16,6 +16,24 @@ copying them from a selected repo and then transferring them to a target repo.
 
 Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a [hosted version](https://label-sync.herokuapp.com/) of the app if you don't want to configure/run the app yourself.
 
+At dwyl we intensively use labels on issues and pull requests to communicate about the status of the work for each team member of our project.
+We are working remotely and the labels allow us
+to quickly know who took responsibilities on an issue 
+and what progress they are at. 
+For example we can quickly see 
+from the list of issues on a repository 
+if someone is working on a specific issue (`in-progress` label), 
+if an issue is finished but waiting for review (`in-review` label) 
+or if an issue is currently reviewed (`in-review` label), 
+see the [list of labels and their description](https://github.com/dwyl/labels#labels).
+
+This process streamlines communication 
+and allows us focus on developing features 
+instead of spending time on "chat" 
+explaining the status of an issue. 
+It allows also to communicate quickly with our clients 
+as they know when to test and approve/reject a feature with the label **`please-test`**.
+
 ## Who?
 
 Any Github user who has created multiple repositories and values their time ⏰
@@ -31,8 +49,8 @@ After authentication via github login a user will simply have to submit a form w
 Labels is _non-destructive_.  
 If there are existing labels with the same name but a different colour,
 the colour will change to match the source repo.  
-Other than this, it will simply add any repos that don't already exist and
-won't touch existing labels.
+Other than this, it will simply add any labels that don't already exist and
+won't touch the existing ones.
 
 ## Run
 
