@@ -1,5 +1,7 @@
 # 🏷 Labels
 
+[![HitCount](https://hits.dwyl.com/dwyl/labels.svg?style=flat-square)](http://hits.dwyl.com/dwyl/labels)
+
 See it in action: https://label-sync.herokuapp.com
 
 ## What?
