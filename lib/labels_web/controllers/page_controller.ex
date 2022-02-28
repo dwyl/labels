@@ -1,5 +1,5 @@
-defmodule AppWeb.PageController do
-  use AppWeb, :controller
+defmodule LabelsWeb.PageController do
+  use LabelsWeb, :controller
 
   def index(conn, _params) do
     render(conn, "index.html")

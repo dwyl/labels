@@ -1,13 +1,13 @@
-defmodule AppWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :app
+defmodule LabelsWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :labels
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_app_key",
-    signing_salt: "PIUn/kTq"
+    key: "_labels_key",
+    signing_salt: "aGr6diIy"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -18,7 +18,7 @@ defmodule AppWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :app,
+    from: :labels,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -28,8 +28,12 @@ defmodule AppWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :app
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :labels
   end
+
+  plug Phoenix.LiveDashboard.RequestLogger,
+    param_key: "request_logger",
+    cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
@@ -42,5 +46,5 @@ defmodule AppWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug AppWeb.Router
+  plug LabelsWeb.Router
 end

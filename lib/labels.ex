@@ -1,6 +1,6 @@
-defmodule App do
+defmodule Labels do
   @moduledoc """
-  App keeps the contexts that define your domain
+  Labels keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

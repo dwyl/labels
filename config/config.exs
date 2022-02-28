@@ -7,15 +7,27 @@
 # General application configuration
 import Config
 
-config :app,
-  ecto_repos: [App.Repo]
+config :labels,
+  ecto_repos: [Labels.Repo]
 
 # Configures the endpoint
-config :app, AppWeb.Endpoint,
+config :labels, LabelsWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: AppWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: App.PubSub,
-  live_view: [signing_salt: "NbQs4/FY"]
+  render_errors: [view: LabelsWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Labels.PubSub,
+  live_view: [signing_salt: "a8lz1atA"]
+
+# Configures the mailer
+#
+# By default it uses the "Local" adapter which stores the emails
+# locally. You can see the emails in your browser, at "/dev/mailbox".
+#
+# For production it's recommended to configure a different adapter
+# at the `config/runtime.exs`.
+config :labels, Labels.Mailer, adapter: Swoosh.Adapters.Local
+
+# Swoosh API client is needed for adapters other than SMTP.
+config :swoosh, :api_client, false
 
 # Configure esbuild (the version is required)
 config :esbuild,

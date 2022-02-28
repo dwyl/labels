@@ -1,5 +1,5 @@
-defmodule AppWeb.ErrorView do
-  use AppWeb, :view
+defmodule LabelsWeb.ErrorView do
+  use LabelsWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

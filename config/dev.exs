@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :app, App.Repo,
+config :labels, Labels.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "app_dev",
+  database: "labels_dev",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -15,14 +15,14 @@ config :app, App.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :app, AppWeb.Endpoint,
+config :labels, LabelsWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "LJY3qWB9u1rwqrTmFYN5CKeLHYb0vboEuI27gOvmAodSJXALKpkokUmQJpcmeGCn",
+  secret_key_base: "BxiIjkMzDKgr1dUvlMThA1YK6/ZVXx7utVqLUeHGXGPUXCh+ZIFXNIC1WLUWiWoW",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
@@ -53,13 +53,13 @@ config :app, AppWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :app, AppWeb.Endpoint,
+config :labels, LabelsWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/app_web/(live|views)/.*(ex)$",
-      ~r"lib/app_web/templates/.*(eex)$"
+      ~r"lib/labels_web/(live|views)/.*(ex)$",
+      ~r"lib/labels_web/templates/.*(eex)$"
     ]
   ]
 

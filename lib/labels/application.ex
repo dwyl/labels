@@ -1,4 +1,4 @@
-defmodule App.Application do
+defmodule Labels.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule App.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      App.Repo,
+      Labels.Repo,
       # Start the Telemetry supervisor
-      AppWeb.Telemetry,
+      LabelsWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: App.PubSub},
+      {Phoenix.PubSub, name: Labels.PubSub},
       # Start the Endpoint (http/https)
-      AppWeb.Endpoint
-      # Start a worker by calling: App.Worker.start_link(arg)
-      # {App.Worker, arg}
+      LabelsWeb.Endpoint
+      # Start a worker by calling: Labels.Worker.start_link(arg)
+      # {Labels.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: App.Supervisor]
+    opts = [strategy: :one_for_one, name: Labels.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule App.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    AppWeb.Endpoint.config_change(changed, removed)
+    LabelsWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end
