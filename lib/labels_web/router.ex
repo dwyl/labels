@@ -18,6 +18,7 @@ defmodule LabelsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/auth/github/callback", GithubAuthController, :index
   end
 
   # Other scopes may use custom stacks.
