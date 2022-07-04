@@ -2,11 +2,13 @@
   "skip_files": [
     "test/",
     "lib/labels.ex",
+    "lib/labels/application.ex",
     "lib/labels/mailer.ex",
     "lib/labels/release.ex",
     "lib/labels_web.ex",
     "lib/labels_web/channels/user_socket.ex",
     "lib/labels_web/endpoint.ex",
-    "lib/labels_web/telemetry.ex"
+    "lib/labels_web/telemetry.ex",
+    "lib/labels_web/views/error_helpers.ex"
   ]
 }
