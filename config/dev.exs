@@ -72,3 +72,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Define github module to use for dev env
+config :labels, :github_api, Labels.Github.Api

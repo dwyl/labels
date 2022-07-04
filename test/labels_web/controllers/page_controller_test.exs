@@ -28,4 +28,17 @@ defmodule LabelsWeb.PageControllerTest do
 
     assert redirected_to(conn, 302) =~ "/login"
   end
+
+  test "GET /login diplay login page", %{conn: conn} do
+    conn =
+      conn
+      |> get("/login")
+
+    assert html_response(conn, 200)
+  end
+
+  test "GET github auth callback", %{conn: conn} do
+    conn = get(conn, "/auth/github/callback?code=123123")
+    assert redirected_to(conn, 302) =~ "/"
+  end
 end
