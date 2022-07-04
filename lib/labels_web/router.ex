@@ -31,6 +31,7 @@ defmodule LabelsWeb.Router do
     pipe_through [:browser, :auth]
 
     get "/", PageController, :index
+    delete "/logout", GithubAuthController, :logout
   end
 
   # Other scopes may use custom stacks.

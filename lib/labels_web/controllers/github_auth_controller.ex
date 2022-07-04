@@ -19,4 +19,10 @@ defmodule LabelsWeb.GithubAuthController do
     oauth_github_url = ElixirAuthGithub.login_url(%{scopes: ["user:email"]})
     render(conn, "login.html", oauth_github_url: oauth_github_url)
   end
+
+  def logout(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: Routes.github_auth_path(conn, :login))
+  end
 end
