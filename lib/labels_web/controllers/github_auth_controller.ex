@@ -8,7 +8,15 @@ defmodule LabelsWeb.GithubAuthController do
     {:ok, profile} = ElixirAuthGithub.github_auth(code)
 
     conn
-    |> put_view(LabelsWeb.PageView)
-    |> render(:welcome, profile: profile)
+    |> assign(:github_token, profile.access_token)
+    |> put_session(:github_token, profile.access_token)
+    |> configure_session(renew: true)
+    |> put_flash(:info, "authenticated!")
+    |> redirect(to: Routes.page_path(conn, :index))
+  end
+
+  def login(conn, _params) do
+    oauth_github_url = ElixirAuthGithub.login_url(%{scopes: ["user:email"]})
+    render(conn, "login.html", oauth_github_url: oauth_github_url)
   end
 end
