@@ -1,8 +1,10 @@
 defmodule LabelsWeb.PageController do
   use LabelsWeb, :controller
 
+  @doc """
+  Render main application page
+  """
   def index(conn, _params) do
-    oauth_github_url = ElixirAuthGithub.login_url(%{scopes: ["user:email"]})
-    render(conn, "index.html", oauth_github_url: oauth_github_url)
+    render(conn, "index.html")
   end
 end

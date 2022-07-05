@@ -19,7 +19,7 @@ defmodule LabelsWeb.GithubAuthController do
   Display the login page
   """
   def login(conn, _params) do
-    oauth_github_url = ElixirAuthGithub.login_url(%{scopes: ["user:email"]})
+    oauth_github_url = github_api().login_url(["user:email"])
     render(conn, "login.html", oauth_github_url: oauth_github_url)
   end
 

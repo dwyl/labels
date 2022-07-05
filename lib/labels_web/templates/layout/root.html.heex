@@ -14,12 +14,8 @@
       <section class="container">
         <nav>
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
             <%= if @github_token do %>
               <%= link "Log out", to: Routes.github_auth_path(@conn, :logout), method: "delete" %>
-            <% end %>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
           </ul>
         </nav>
