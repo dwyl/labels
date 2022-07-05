@@ -1,5 +1,7 @@
 # 🏷 Labels
 
+[![HitCount](https://hits.dwyl.com/dwyl/labels.svg?style=flat-square)](http://hits.dwyl.com/dwyl/labels)
+
 See it in action: https://label-sync.herokuapp.com
 
 ## What?
@@ -89,7 +91,9 @@ for that module plus our own optional:
   + `SOURCE_REPO` defaults the value of the source repo in form.
   + `SOURCE_OWNER`defaults the value of the source owner in form.
 
+# TODO
 
+Update the section on how to run the Phoenix app on localhost!
 #### To run:
 
 Enter these commands into your terminal:

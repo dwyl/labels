@@ -1,0 +1,1 @@
+call "%~dp0\labels" eval Labels.Release.migrate
