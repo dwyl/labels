@@ -12,8 +12,18 @@ defmodule Labels.Github.Mock do
   end
 
   @impl true
+  def get_labels(_token, "dwyl", "notfound") do
+    {:error, :not_found}
+  end
+
+  @impl true
+  def get_labels(_token, "dwyl", "labels") do
+    {:ok, [%{"name" => "label1"}, %{"name" => "label2"}, %{"name" => "label3"}]}
+  end
+
+  @impl true
   def get_labels(_token, _owner, _repo) do
-    {:ok, ["label1", "label2"]}
+    {:ok, [%{"name" => "label1"}, %{"name" => "label2"}]}
   end
 
   @impl true
