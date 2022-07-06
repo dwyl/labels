@@ -10,13 +10,17 @@ defmodule Labels.Github.Api do
   def get_profile(code), do: ElixirAuthGithub.github_auth(code)
 
   @impl true
-  def get_labels(token, _owner, _repo) do
+  def get_labels(token, owner, repo) do
     req = Req.new(base_url: "https://api.github.com")
 
-    labels =
-      Req.get!(req, url: "/repos/dwyl/labels/labels?per_page=100", auth: {:bearer, token}).body
+    res =
+      Req.get!(req, url: "/repos/#{owner}/#{repo}/labels?per_page=100", auth: {:bearer, token})
 
-    {:ok, labels}
+    case res.status do
+      200 -> {:ok, res.body}
+      404 -> {:error, :not_found}
+      _ -> {:error, :unknown}
+    end
   end
 
   def create_label(token, _owner, _repo, label) do

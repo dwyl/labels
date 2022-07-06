@@ -9,27 +9,38 @@ defmodule LabelsWeb.PageController do
   end
 
   def sync(conn, %{"sync_labels" => form}) do
-    {:ok, source_labels} =
-      github_api().get_labels(
-        conn.assigns.github_token,
-        form["source_owner"],
-        form["source_repo"]
-      )
+    token = conn.assigns.github_token
+    source_owner = form["source_owner"]
+    source_repo = form["source_repo"]
+    target_owner = form["target_owner"]
+    target_repo = form["target_repo"]
 
-    {:ok, target_labels} =
-      github_api().get_labels(
-        conn.assigns.github_token,
-        form["target_owner"],
-        form["target_repo"]
-      )
+    with {:ok, _source_labels, _target_labels} <-
+           get_labels(token, source_owner, source_repo, target_owner, target_repo) do
+      conn
+      |> put_flash(:info, "Labels synced!")
+      |> redirect(to: Routes.page_path(conn, :index))
+    else
+      {:error, :not_found, repo} ->
+        conn
+        |> put_flash(:error, "#{repo} repository not found")
+        |> redirect(to: Routes.page_path(conn, :index))
+    end
 
     # Enum.each(labels, fn label ->
     #   github_api().create_label(conn.assigns.github_token, "simonLab", "time-mvp", label)
     # end)
+  end
 
-    conn
-    |> put_flash(:info, "Labels synced!")
-    |> redirect(to: Routes.page_path(conn, :index))
+  defp get_labels(token, source_owner, source_repo, target_owner, target_repo) do
+    with {{:ok, source_labels}, :source} <-
+           {github_api().get_labels(token, source_owner, source_repo), :source},
+         {{:ok, target_labels}, :target} <-
+           {github_api().get_labels(token, target_owner, target_repo), :target} do
+      {:ok, source_labels, target_labels}
+    else
+      {{:error, :not_found}, repo} -> {:error, :not_found, repo}
+    end
   end
 
   defp github_api, do: Application.get_env(:labels, :github_api)
