@@ -1,4 +1,11 @@
-<section class="phx-hero">
-  <h1>Welcome to Labels App!</h1>
-</section>
+<%= form_for @conn, Routes.page_path(@conn, :sync), [as: :sync_labels], fn f -> %>
+  <b>Copy labels from:</b>
+  <%= text_input f, :source_owner, value: "dwyl" %>
+  <%= text_input f, :source_repo, value: "labels" %>
+
+  <b>Copy labels to:</b>
+  <%= text_input f, :target_owner %>
+  <%= text_input f, :target_repo  %>
+  <%= submit "Sync" %>
+<% end %>
 
