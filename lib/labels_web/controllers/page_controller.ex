@@ -15,8 +15,10 @@ defmodule LabelsWeb.PageController do
     target_owner = form["target_owner"]
     target_repo = form["target_repo"]
 
-    with {:ok, _source_labels, _target_labels} <-
-           get_labels(token, source_owner, source_repo, target_owner, target_repo) do
+    with {:ok, source_labels, target_labels} <-
+           get_labels(token, source_owner, source_repo, target_owner, target_repo),
+         :ok <-
+           create_update_labels(token, target_owner, target_repo, source_labels, target_labels) do
       conn
       |> put_flash(:info, "Labels synced!")
       |> redirect(to: Routes.page_path(conn, :index))
@@ -26,10 +28,6 @@ defmodule LabelsWeb.PageController do
         |> put_flash(:error, "#{repo} repository not found")
         |> redirect(to: Routes.page_path(conn, :index))
     end
-
-    # Enum.each(labels, fn label ->
-    #   github_api().create_label(conn.assigns.github_token, "simonLab", "time-mvp", label)
-    # end)
   end
 
   # get source and target labels
@@ -42,6 +40,25 @@ defmodule LabelsWeb.PageController do
     else
       {{:error, :not_found}, repo} -> {:error, :not_found, repo}
     end
+  end
+
+  # Send request to update or create labels
+  defp create_update_labels(token, owner, repo, source_labels, target_labels) do
+    target_label_names = Enum.map(target_labels, & &1["name"])
+
+    source_labels
+    |> Enum.map(fn label ->
+      if Enum.member?(target_label_names, label["name"]) do
+        updated_label = Map.put(label, :new_name, label["name"])
+
+        Task.async(github_api(), :update_label, [token, owner, repo, label["name"], updated_label])
+      else
+        Task.async(github_api(), :create_label, [token, owner, repo, label])
+      end
+    end)
+    |> Enum.map(fn task -> Task.await(task) end)
+
+    :ok
   end
 
   defp github_api, do: Application.get_env(:labels, :github_api)

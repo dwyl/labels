@@ -36,8 +36,10 @@ defmodule Labels.Github.Api do
 
   @impl true
   def update_label(token, owner, repo, label_name, label) do
+    endpoint = URI.encode("https://api.github.com/repos/#{owner}/#{repo}/labels/#{label_name}")
+
     res =
-      Req.patch!("https://api.github.com/repos/#{owner}/#{repo}/labels/#{label_name}",
+      Req.patch!(endpoint,
         auth: {:bearer, token},
         json: label
       )
