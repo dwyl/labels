@@ -2,3 +2,9 @@
   <h1>Welcome to Labels App!</h1>
 </section>
 
+<p>Labels:</p>
+<ul>
+  <%= for label <- @labels do %>
+    <li><%= label["name"] %></li>
+  <% end %>
+</ul>

@@ -58,7 +58,8 @@ defmodule Labels.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:elixir_auth_github, "~> 1.6"}
+      {:elixir_auth_github, "~> 1.6"},
+      {:req, "~> 0.3"}
     ]
   end
 
