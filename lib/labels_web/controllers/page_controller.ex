@@ -32,6 +32,7 @@ defmodule LabelsWeb.PageController do
     # end)
   end
 
+  # get source and target labels
   defp get_labels(token, source_owner, source_repo, target_owner, target_repo) do
     with {{:ok, source_labels}, :source} <-
            {github_api().get_labels(token, source_owner, source_repo), :source},

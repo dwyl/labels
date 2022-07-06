@@ -23,9 +23,21 @@ defmodule Labels.Github.Api do
     end
   end
 
-  def create_label(token, _owner, _repo, label) do
+  @impl true
+  def create_label(token, owner, repo, label) do
     res =
-      Req.post!("https://api.github.com/repos/SimonLab/time-mvp/labels",
+      Req.post!("https://api.github.com/repos/#{owner}/#{repo}/labels",
+        auth: {:bearer, token},
+        json: label
+      )
+
+    {:ok, res.status}
+  end
+
+  @impl true
+  def update_label(token, owner, repo, label_name, label) do
+    res =
+      Req.patch!("https://api.github.com/repos/#{owner}/#{repo}/labels/#{label_name}",
         auth: {:bearer, token},
         json: label
       )
