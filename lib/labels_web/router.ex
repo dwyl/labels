@@ -41,7 +41,7 @@ defmodule LabelsWeb.Router do
   end
 
   defp authenticate(conn, _opts) do
-    if conn.assigns.github_token do
+    if !is_nil(conn.assigns.github_token) and !is_nil(conn.assigns.github_user_id) do
       conn
     else
       conn

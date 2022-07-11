@@ -9,3 +9,12 @@
   <%= submit "Sync" %>
 <% end %>
 
+<%= if length(@repositories) > 0 do %>
+  <b>Your previously synched repositories:</b>
+  <ul>
+  <%= for repo <- @repositories do %>
+    <li><%= repo %></li>
+  <% end %>
+  </ul>
+<% end %>
+

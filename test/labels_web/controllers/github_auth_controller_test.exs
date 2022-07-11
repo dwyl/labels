@@ -9,7 +9,7 @@ defmodule LabelsWeb.GithubAuthControllerTest do
   test "DELETE /logout redirect also to login once logged out", %{conn: conn} do
     conn =
       conn
-      |> Plug.Test.init_test_session(github_token: "123")
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> delete("/logout")
 
     assert redirected_to(conn, 302) =~ "/login"

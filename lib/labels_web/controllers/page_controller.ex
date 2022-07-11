@@ -11,6 +11,7 @@ defmodule LabelsWeb.PageController do
   end
 
   def sync(conn, %{"sync_labels" => form}) do
+    github_user_id = conn.assigns.github_user_id
     token = conn.assigns.github_token
     source_owner = form["source_owner"]
     source_repo = form["source_repo"]
@@ -20,9 +21,15 @@ defmodule LabelsWeb.PageController do
     with {:ok, source_labels, target_labels} <-
            get_labels(token, source_owner, source_repo, target_owner, target_repo),
          :ok <-
-           create_update_labels(token, target_owner, target_repo, source_labels, target_labels) do
+           create_update_labels(token, target_owner, target_repo, source_labels, target_labels),
+         {:ok, _repo} <-
+           Repository.upsert(%{
+             github_user_id: github_user_id,
+             owner: target_owner,
+             repo_name: target_repo
+           }) do
       conn
-      |> put_flash(:info, "Labels synced!")
+      |> put_flash(:info, "Labels synched!")
       |> redirect(to: Routes.page_path(conn, :index))
     else
       {:error, :not_found, repo} ->

@@ -3,6 +3,7 @@ defmodule Labels.Repository do
   import Ecto.Changeset
   import Ecto.Query
   alias Labels.Repo
+  alias __MODULE__
 
   schema "repositories" do
     field :github_user_id, :integer
@@ -27,5 +28,15 @@ defmodule Labels.Repository do
         select: r.repo_name
 
     Repo.all(query)
+  end
+
+  @doc """
+  Insert or return existing repository
+  see https://hexdocs.pm/ecto/constraints-and-upserts.html#upserts
+  """
+  def upsert(attrs \\ %{}) do
+    %Repository{}
+    |> changeset(attrs)
+    |> Repo.insert(on_conflict: :nothing)
   end
 end

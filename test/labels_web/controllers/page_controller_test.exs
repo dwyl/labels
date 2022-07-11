@@ -51,7 +51,7 @@ defmodule LabelsWeb.PageControllerTest do
 
     conn =
       conn
-      |> Plug.Test.init_test_session(github_token: "123")
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> post("/sync", %{"sync_labels" => data})
 
     assert redirected_to(conn, 302) =~ "/"
