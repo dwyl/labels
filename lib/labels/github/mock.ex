@@ -8,7 +8,7 @@ defmodule Labels.Github.Mock do
 
   @impl true
   def get_profile(_code) do
-    {:ok, %{access_token: "123"}}
+    {:ok, %{access_token: "123", id: 1234}}
   end
 
   @impl true

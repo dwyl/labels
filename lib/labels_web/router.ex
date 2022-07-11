@@ -9,7 +9,7 @@ defmodule LabelsWeb.Router do
     plug :put_root_layout, {LabelsWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :assign_github_token
+    plug :assign_github_token_and_id
   end
 
   pipeline :auth do
@@ -31,9 +31,13 @@ defmodule LabelsWeb.Router do
     delete "/logout", GithubAuthController, :logout
   end
 
-  defp assign_github_token(conn, _opts) do
+  defp assign_github_token_and_id(conn, _opts) do
     github_token = get_session(conn, :github_token)
-    assign(conn, :github_token, github_token)
+    github_user_id = get_session(conn, :github_user_id)
+
+    conn
+    |> assign(:github_token, github_token)
+    |> assign(:github_user_id, github_user_id)
   end
 
   defp authenticate(conn, _opts) do

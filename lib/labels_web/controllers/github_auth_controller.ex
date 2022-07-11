@@ -9,7 +9,9 @@ defmodule LabelsWeb.GithubAuthController do
 
     conn
     |> assign(:github_token, profile.access_token)
+    |> assign(:github_user_id, profile.id)
     |> put_session(:github_token, profile.access_token)
+    |> put_session(:github_user_id, profile.id)
     |> configure_session(renew: true)
     |> put_flash(:info, "authenticated!")
     |> redirect(to: Routes.page_path(conn, :index))
