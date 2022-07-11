@@ -9,7 +9,7 @@ defmodule LabelsWeb.PageControllerTest do
   test "GET / diplay page when logged in", %{conn: conn} do
     conn =
       conn
-      |> Plug.Test.init_test_session(github_token: "123")
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> get("/")
 
     assert html_response(conn, 200)
@@ -26,7 +26,7 @@ defmodule LabelsWeb.PageControllerTest do
 
     conn =
       conn
-      |> Plug.Test.init_test_session(github_token: "123")
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> post("/sync", %{"sync_labels" => data})
 
     saved_assigns = conn.assigns

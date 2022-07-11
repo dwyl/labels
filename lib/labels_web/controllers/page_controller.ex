@@ -1,11 +1,13 @@
 defmodule LabelsWeb.PageController do
   use LabelsWeb, :controller
+  alias Labels.Repository
 
   @doc """
   Render main application page
   """
   def index(conn, _params) do
-    render(conn, "index.html")
+    repositories = Repository.list_repositories(conn.assigns.github_user_id)
+    render(conn, "index.html", repositories: repositories)
   end
 
   def sync(conn, %{"sync_labels" => form}) do
