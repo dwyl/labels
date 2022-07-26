@@ -27,7 +27,10 @@ defmodule LabelsWeb.Router do
     pipe_through [:browser, :auth]
 
     get "/", PageController, :index
-    post "/sync", PageController, :sync
+    post "/", PageController, :sync
+
+    post "/sync-repos", PageController, :sync_repos
+
     delete "/logout", GithubAuthController, :logout
   end
 

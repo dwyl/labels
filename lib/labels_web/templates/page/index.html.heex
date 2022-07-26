@@ -10,11 +10,19 @@
 <% end %>
 
 <%= if length(@repositories) > 0 do %>
-  <b>Your previously synched repositories:</b>
-  <ul>
-  <%= for repo <- @repositories do %>
-    <li><%= repo %></li>
+  <p><b>Your previously synched repositories:</b></p>
+  <%= form_for @conn, Routes.page_path(@conn, :sync_repos), [as: :sync_repos], fn f -> %>
+    <b>Copy labels from:</b>
+    <%= text_input f, :source_owner, value: "dwyl" %>
+    <%= text_input f, :source_repo, value: "labels" %>
+
+    <ul>
+    <%= for {owner, repo} <- @repositories do %>
+      <li><%= "#{owner}/#{repo}" %></li>
+    <% end %>
+    </ul>
+
+    <%= submit "Re-sync" %>
   <% end %>
-  </ul>
 <% end %>
 
