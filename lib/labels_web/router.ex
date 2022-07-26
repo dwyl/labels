@@ -27,7 +27,7 @@ defmodule LabelsWeb.Router do
     pipe_through [:browser, :auth]
 
     get "/", PageController, :index
-    post "/", PageController, :sync
+    post "/sync", PageController, :sync
 
     post "/sync-repos", PageController, :sync_repos
 

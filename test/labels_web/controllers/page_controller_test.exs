@@ -56,4 +56,60 @@ defmodule LabelsWeb.PageControllerTest do
 
     assert redirected_to(conn, 302) =~ "/"
   end
+
+  test "Post /sync-repos redirect to / when source repo not found", %{conn: conn} do
+    data = %{
+      "source_owner" => "dwyl",
+      "source_repo" => "notfound"
+    }
+
+    conn =
+      conn
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
+      |> post("/sync-repos", %{"sync_repos" => data})
+
+    assert redirected_to(conn, 302) =~ "/"
+  end
+
+  test "Post /sync-repos redirect to / when one of the target repos not found", %{conn: conn} do
+    data = %{
+      "source_owner" => "dwyl",
+      "source_repo" => "labels"
+    }
+
+    # insert notfound repo
+    Labels.Repository.upsert(%{
+      github_user_id: 1234,
+      owner: "dwyl",
+      repo_name: "notfound"
+    })
+
+    conn =
+      conn
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
+      |> post("/sync-repos", %{"sync_repos" => data})
+
+    assert redirected_to(conn, 302) =~ "/"
+  end
+
+  test "Post /sync-repos redirect to /", %{conn: conn} do
+    data = %{
+      "source_owner" => "dwyl",
+      "source_repo" => "labels"
+    }
+
+    # insert labels repo
+    Labels.Repository.upsert(%{
+      github_user_id: 1234,
+      owner: "dwyl",
+      repo_name: "labels"
+    })
+
+    conn =
+      conn
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
+      |> post("/sync-repos", %{"sync_repos" => data})
+
+    assert redirected_to(conn, 302) =~ "/"
+  end
 end
