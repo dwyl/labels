@@ -25,7 +25,7 @@ defmodule Labels.Repository do
       from r in "repositories",
         where: r.github_user_id == ^github_user_id,
         order_by: [desc: :inserted_at],
-        select: r.repo_name
+        select: {r.owner, r.repo_name}
 
     Repo.all(query)
   end

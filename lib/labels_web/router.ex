@@ -28,6 +28,9 @@ defmodule LabelsWeb.Router do
 
     get "/", PageController, :index
     post "/sync", PageController, :sync
+
+    post "/sync-repos", PageController, :sync_repos
+
     delete "/logout", GithubAuthController, :logout
   end
 
