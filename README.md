@@ -1,8 +1,9 @@
 # 🏷 Labels
 
 [![HitCount](https://hits.dwyl.com/dwyl/labels.svg?style=flat-square)](http://hits.dwyl.com/dwyl/labels)
+[![Elixir CI](https://github.com/dwyl/labels/actions/workflows/ci.yml/badge.svg)](https://github.com/dwyl/labels/actions/workflows/ci.yml)
 
-See it in action: https://label-sync.herokuapp.com
+See it in action: https://labels.fly.dev/
 
 ## What?
 
@@ -17,7 +18,7 @@ to **save you time** by automating the addition of labels to a new project by
 copying them from a selected repo and then transferring them to a target repo.
 
 Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a 
-[hosted version](https://label-sync.herokuapp.com/) 
+[hosted version](https://labels.fly.dev/) 
 of the app if you don't want to configure/run the app yourself.
 
 At **`dwyl`** we intensively use labels on issues and pull requests 
@@ -34,10 +35,10 @@ or if an issue is currently reviewed (`in-review` label),
 see the [list of labels and their description](https://github.com/dwyl/labels#labels).
 
 This process streamlines communication 
-and allows us focus on developing features 
+and allows us to focus on developing features 
 instead of spending time on "chat" 
 explaining the status of an issue. 
-It allows also to communicate quickly with our clients 
+It also allows us to communicate quickly with our clients 
 as they know when to test and approve/reject a feature with the label **`please-test`**.
 
 ## Who?
@@ -47,12 +48,14 @@ Any Github user who has created multiple repositories and values their time ⏰
 ## How?
 
 A simple and intuitive UI authenticated with GitHub using 
-[hapi-auth-github](https://github.com/dwyl/hapi-auth-github) 
+[elixir-auth-github](https://github.com/dwyl/elixir-auth-github/) 
 and make requests to the github api on your behalf.
 
 After authentication via github login a user will simply have to submit a form with the following fields.
  + Source repo name and owner
  + Target repo name and owner
+
+You can also copy labels again to previously synchronized repositories.
 
 ### What happens to existing labels in target repo?
 
@@ -67,42 +70,28 @@ won't touch the existing ones.
 
 #### Config
 
-Since we are using [hapi-auth-github](https://github.com/dwyl/hapi-auth-github) 
+Since we are using [elixir-auth-github](https://github.com/dwyl/elixir-auth-github) 
 you will need to follow some of their setup to run the project locally.
  + You need to create a new oauth application in your github but please see 
- [hapi-auth-github](https://github.com/dwyl/hapi-auth-github#2-create-an-app-on-github) for details.
+   [create-a-github-app-and-oauth2-credentials](https://github.com/dwyl/elixir-auth-github/#2-create-a-github-app-and-oauth2-credentials-)
  + You will need to create a 
  [.env](https://github.com/dwyl/learn-environment-variables) 
  file root or project of the form:
 
 ```sh
-GITHUB_CLIENT_ID=see_hapi-auth-github
-GITHUB_CLIENT_SECRET=see_hapi-auth-github
-BASE_URL=see_hapi-auth-github
-JWT_SECRET=see_hapi-auth-github
-PORT=see_hapi-auth-github
-GITHUB_AUTH_REDIRECT_URL=see_hapi-auth-github
-SOURCE_REPO=optional
-SOURCE_OWNER=optional
+GITHUB_CLIENT_ID=<your-client-id>
+GITHUB_CLIENT_SECRET=<your-client-secret>
 ```
-As we use  we will need all the environment variables 
-[required](https://github.com/dwyl/hapi-auth-github#3-export-the-required-environment-variables) 
-for that module plus our own optional:
-  + `SOURCE_REPO` defaults the value of the source repo in form.
-  + `SOURCE_OWNER`defaults the value of the source owner in form.
 
-# TODO
-
-Update the section on how to run the Phoenix app on localhost!
 #### To run:
 
 Enter these commands into your terminal:
 * `git clone https://github.com/dwyl/labels.git`
 * `cd labels`
-* `npm i`
-* :arrow_up: Make sure you have your `.env` file and all the required variables :arrow_up:.
-* `npm start`
-* Visit http://localhost:8000/ (or port you have selected)
+* `source .env`
+* `mix deps.get`
+* `mix phx.server`
+* Visit http://localhost:4000/
 
 
 ## Labels
