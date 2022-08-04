@@ -29,15 +29,6 @@ defmodule LabelsWeb.PageControllerTest do
       |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> post("/sync", %{"sync_labels" => data})
 
-    saved_assigns = conn.assigns
-    assert "/" = redir_path = redirected_to(conn, 302)
-
-    conn =
-      conn
-      |> recycle()
-      |> Map.put(:assigns, saved_assigns)
-      |> get(redir_path)
-
     assert html_response(conn, 200) =~ "source repository not found"
   end
 
@@ -54,7 +45,7 @@ defmodule LabelsWeb.PageControllerTest do
       |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> post("/sync", %{"sync_labels" => data})
 
-    assert redirected_to(conn, 302) =~ "/"
+    assert html_response(conn, 200)
   end
 
   test "Post /sync-repos redirect to / when source repo not found", %{conn: conn} do
