@@ -1,11 +1,11 @@
 <%= form_for @conn, Routes.page_path(@conn, :sync), [as: :sync_labels], fn f -> %>
   <b>Copy labels from:</b>
-  <%= text_input f, :source_owner, value: "dwyl" %>
-  <%= text_input f, :source_repo, value: "labels" %>
+  <%= text_input f, :source_owner, value: @source_owner %>
+  <%= text_input f, :source_repo, value: @source_repo %>
 
   <b>Copy labels to:</b>
-  <%= text_input f, :target_owner %>
-  <%= text_input f, :target_repo  %>
+  <%= text_input f, :target_owner, value: @target_owner %>
+  <%= text_input f, :target_repo, value: @target_repo  %>
   <%= submit "Sync" %>
 <% end %>
 

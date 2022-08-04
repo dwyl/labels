@@ -7,7 +7,8 @@ defmodule LabelsWeb.PageController do
   """
   def index(conn, _params) do
     repositories = Repository.list_repositories(conn.assigns.github_user_id)
-    render(conn, "index.html", repositories: repositories)
+
+    render(conn, "index.html", [repositories: repositories] ++ form_values())
   end
 
   @doc """
@@ -20,6 +21,7 @@ defmodule LabelsWeb.PageController do
     source_repo = form["source_repo"]
     target_owner = form["target_owner"]
     target_repo = form["target_repo"]
+    repositories = Repository.list_repositories(conn.assigns.github_user_id)
 
     with {{:ok, source_labels}, :source} <-
            {get_labels(token, source_owner, source_repo), :source},
@@ -33,14 +35,28 @@ defmodule LabelsWeb.PageController do
              owner: target_owner,
              repo_name: target_repo
            }) do
+      # create ok changeset -> keep source info, remove target info
       conn
       |> put_flash(:info, "Labels synched!")
-      |> redirect(to: Routes.page_path(conn, :index))
+      |> render(
+        "index.html",
+        [repositories: repositories] ++
+          form_values(source_owner: source_owner, source_repo: source_repo)
+      )
     else
       {{:error, :not_found}, repo} ->
         conn
         |> put_flash(:error, "#{repo} repository not found")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> render(
+          "index.html",
+          [repositories: repositories] ++
+            form_values(
+              source_owner: source_owner,
+              source_repo: source_repo,
+              target_owner: target_owner,
+              target_repo: target_repo
+            )
+        )
     end
   end
 
@@ -128,6 +144,15 @@ defmodule LabelsWeb.PageController do
     else
       :error
     end
+  end
+
+  defp form_values(opts \\ []) do
+    [
+      source_owner: opts[:source_owner] || "dwyl",
+      source_repo: opts[:source_repo] || "labels",
+      target_owner: opts[:target_owner],
+      target_repo: opts[:target_repo]
+    ]
   end
 
   defp github_api, do: Application.get_env(:labels, :github_api)
