@@ -76,12 +76,20 @@ defmodule LabelsWeb.PageController do
       {:error, :not_found} ->
         conn
         |> put_flash(:error, "source repository not found")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> render(
+          "index.html",
+          [repositories: repositories] ++
+            form_values(resync_source_owner: source_owner, resync_source_repo: source_repo)
+        )
 
       :error ->
         conn
         |> put_flash(:error, "Error while updating labels on one of the repository")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> render(
+          "index.html",
+          [repositories: repositories] ++
+            form_values(resync_source_owner: source_owner, resync_source_repo: source_repo)
+        )
     end
   end
 
@@ -151,7 +159,9 @@ defmodule LabelsWeb.PageController do
       source_owner: opts[:source_owner] || "dwyl",
       source_repo: opts[:source_repo] || "labels",
       target_owner: opts[:target_owner],
-      target_repo: opts[:target_repo]
+      target_repo: opts[:target_repo],
+      resync_source_owner: opts[:resync_source_owner] || "dwyl",
+      resync_source_repo: opts[:resync_source_repo] || "labels"
     ]
   end
 
