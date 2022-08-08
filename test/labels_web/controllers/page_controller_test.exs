@@ -59,10 +59,10 @@ defmodule LabelsWeb.PageControllerTest do
       |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> post("/sync-repos", %{"sync_repos" => data})
 
-    assert redirected_to(conn, 302) =~ "/"
+    assert html_response(conn, 200) =~ "source repository not found"
   end
 
-  test "Post /sync-repos redirect to / when one of the target repos not found", %{conn: conn} do
+  test "Post /sync-repos when one of the target repos not found", %{conn: conn} do
     data = %{
       "source_owner" => "dwyl",
       "source_repo" => "labels"
@@ -80,7 +80,7 @@ defmodule LabelsWeb.PageControllerTest do
       |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
       |> post("/sync-repos", %{"sync_repos" => data})
 
-    assert redirected_to(conn, 302) =~ "/"
+    assert html_response(conn, 200) =~ "Error while updating labels on one of the repository"
   end
 
   test "Post /sync-repos redirect to /", %{conn: conn} do
