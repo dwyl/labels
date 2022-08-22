@@ -27,6 +27,11 @@ defmodule Labels.Github.Mock do
   end
 
   @impl true
+  def create_label(_token, _owner, "notallowed", _label) do
+    {:error, :not_found}
+  end
+
+  @impl true
   def create_label(_token, _owner, _repo, _label) do
     {:ok, %{}}
   end
