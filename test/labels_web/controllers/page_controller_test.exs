@@ -103,4 +103,22 @@ defmodule LabelsWeb.PageControllerTest do
 
     assert redirected_to(conn, 302) =~ "/"
   end
+
+  test "Post /sync redirect to / when write permission not allowed", %{conn: conn} do
+    data = %{
+      "source_owner" => "dwyl",
+      # mock will return :not_found
+      "source_repo" => "labels",
+      "target_owner" => "dwyl",
+      "target_repo" => "notallowed"
+    }
+
+    conn =
+      conn
+      |> Plug.Test.init_test_session(github_token: "123", github_user_id: 1234)
+      |> post("/sync", %{"sync_labels" => data})
+
+    assert html_response(conn, 200) =~
+             "Labels not updated! Make sure you are allowed to create labels on the repository"
+  end
 end

@@ -16,11 +16,7 @@ defmodule Labels.Github.Api do
     res =
       Req.get!(req, url: "/repos/#{owner}/#{repo}/labels?per_page=100", auth: {:bearer, token})
 
-    case res.status do
-      200 -> {:ok, res.body}
-      404 -> {:error, :not_found}
-      _ -> {:error, :unknown}
-    end
+    check_api_response(res)
   end
 
   @impl true
@@ -31,7 +27,7 @@ defmodule Labels.Github.Api do
         json: label
       )
 
-    {:ok, res.status}
+    check_api_response(res)
   end
 
   @impl true
@@ -44,6 +40,14 @@ defmodule Labels.Github.Api do
         json: label
       )
 
-    {:ok, res.status}
+    check_api_response(res)
+  end
+
+  defp check_api_response(res) do
+    case res.status do
+      200 -> {:ok, res.body}
+      404 -> {:error, :not_found}
+      _ -> {:error, :unknown}
+    end
   end
 end

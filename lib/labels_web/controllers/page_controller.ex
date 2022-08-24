@@ -27,8 +27,14 @@ defmodule LabelsWeb.PageController do
            {get_labels(token, source_owner, source_repo), :source},
          {{:ok, target_labels}, :target} <-
            {get_labels(token, target_owner, target_repo), :target},
-         :ok <-
-           create_or_update_labels(token, target_owner, target_repo, source_labels, target_labels),
+         {:ok, :labels} <-
+           {create_or_update_labels(
+              token,
+              target_owner,
+              target_repo,
+              source_labels,
+              target_labels
+            ), :labels},
          {:ok, _repo} <-
            Repository.upsert(%{
              github_user_id: github_user_id,
@@ -47,6 +53,23 @@ defmodule LabelsWeb.PageController do
       {{:error, :not_found}, repo} ->
         conn
         |> put_flash(:error, "#{repo} repository not found")
+        |> render(
+          "index.html",
+          [repositories: repositories] ++
+            form_values(
+              source_owner: source_owner,
+              source_repo: source_repo,
+              target_owner: target_owner,
+              target_repo: target_repo
+            )
+        )
+
+      {:error, :labels} ->
+        conn
+        |> put_flash(
+          :error,
+          "Labels not updated! Make sure you are allowed to create labels on the repository"
+        )
         |> render(
           "index.html",
           [repositories: repositories] ++
@@ -103,21 +126,33 @@ defmodule LabelsWeb.PageController do
 
   # Send request to update or create labels
   defp create_or_update_labels(token, owner, repo, source_labels, target_labels) do
+    # The taget_labels is a list of Map: [%{name:..., description: ..., color:...},...]
     target_label_names = Enum.map(target_labels, & &1["name"])
 
-    source_labels
-    |> Enum.map(fn label ->
-      if Enum.member?(target_label_names, label["name"]) do
-        updated_label = Map.put(label, :new_name, label["name"])
+    res =
+      source_labels
+      |> Enum.map(fn label ->
+        if Enum.member?(target_label_names, label["name"]) do
+          updated_label = Map.put(label, :new_name, label["name"])
 
-        Task.async(github_api(), :update_label, [token, owner, repo, label["name"], updated_label])
-      else
-        Task.async(github_api(), :create_label, [token, owner, repo, label])
-      end
-    end)
-    |> Enum.map(fn task -> Task.await(task) end)
+          Task.async(github_api(), :update_label, [
+            token,
+            owner,
+            repo,
+            label["name"],
+            updated_label
+          ])
+        else
+          Task.async(github_api(), :create_label, [token, owner, repo, label])
+        end
+      end)
+      |> Enum.map(fn task -> Task.await(task) end)
 
-    :ok
+    if Enum.any?(res, fn r -> elem(r, 0) == :error end) do
+      :error
+    else
+      :ok
+    end
   end
 
   defp sync_repo(token, source_labels, target_owner, target_repo) do
