@@ -109,6 +109,8 @@ Clicking on a label will take you to an issue with further discussion on its exi
 - [`awaiting-review`](https://github.com/dwyl/labels/issues/49) #f39c12 - added to _issue_ once a PR with its resolution has been assigned to a reviewer (replaces `in-progress`)
 - [`chore`](https://github.com/dwyl/labels/issues/37) #3A2716 - routine tasks that must be done for every project but require little active brain power
 - [`discuss`](https://github.com/dwyl/labels/issues/8) #60EEEE - invites discussion from contributors
+- [`documentation`](https://github.com/dwyl/labels/issues/141) `#0075ca` - 
+  Improvements or additions to documentation
 - [`epic`](https://github.com/dwyl/labels/issues/35) #000059 - big issues that span multiple days & need to be broken down
 - [`external-dependency`](https://github.com/dwyl/labels/issues/54) #e6e6e6 - no further work can be carried out until a third party completes an action (specified in a comment in the issue)
 - `in-progress` #009688 - added when you *start* working on an issue (and have assigned it to yourself)
