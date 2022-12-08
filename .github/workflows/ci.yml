@@ -22,26 +22,35 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+    strategy:
+      matrix:
+        otp: ['24.3.4']
+        elixir: ['1.14.1']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Elixir
-      uses: erlef/setup-elixir@885971a72ed1f9240973bd92ab57af8c1aa68f24
+      uses: erlef/setup-beam@v1
       with:
-        elixir-version: '1.12.3' # Define the elixir version [required]
-        otp-version: '24.0.2' # Define the OTP version [required]
-    - name: Restore dependencies cache
-      uses: actions/cache@v2
+        otp-version: ${{ matrix.otp }}
+        elixir-version: ${{ matrix.elixir }} 
+    - name: Restore deps and _build cache
+      uses: actions/cache@v3
       with:
-        path: deps
-        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-        restore-keys: ${{ runner.os }}-mix-
+        path: |
+          deps
+          _build
+        key: deps-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+        restore-keys: |
+          deps-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}
     - name: Install dependencies
       run: mix deps.get
+    - name: Check code is formatted
+      run: mix format --check-formatted
     - name: Run Tests
       run: mix coveralls.json
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MIX_ENV: test
         AUTH_API_KEY: ${{ secrets.AUTH_API_KEY }}
+        ENCRYPTION_KEYS: ${{ secrets.ENCRYPTION_KEYS }}
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
