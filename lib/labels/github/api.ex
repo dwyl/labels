@@ -1,5 +1,6 @@
 defmodule Labels.Github.Api do
   @behaviour Labels.Github.Github
+  require Logger
 
   @impl true
   def login_url(scopes) do
@@ -27,6 +28,7 @@ defmodule Labels.Github.Api do
         json: label
       )
 
+    Logger.info("create label: #{label["name"]}, response status: #{res.status}")
     check_api_response(res)
   end
 
@@ -40,6 +42,7 @@ defmodule Labels.Github.Api do
         json: label
       )
 
+    Logger.info("update label: #{label["name"]}, response status: #{res.status}")
     check_api_response(res)
   end
 
