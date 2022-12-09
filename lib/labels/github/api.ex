@@ -53,6 +53,9 @@ defmodule Labels.Github.Api do
   end
 
   defp check_api_response(res) do
+    if res.status != 200 and res.status != 201,
+      do: Logger.info("#{res.status}: #{res.body["message"]}")
+
     case res.status do
       # label updated
       200 -> {:ok, res.body}
