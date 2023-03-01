@@ -1,28 +1,27 @@
 <%= form_for @conn, Routes.page_path(@conn, :sync), [as: :sync_labels], fn f -> %>
   <b>Copy labels from:</b>
-  <%= text_input f, :source_owner, value: @source_owner %>
-  <%= text_input f, :source_repo, value: @source_repo %>
+  <%= text_input(f, :source_owner, value: @source_owner) %>
+  <%= text_input(f, :source_repo, value: @source_repo) %>
 
   <b>Copy labels to:</b>
-  <%= text_input f, :target_owner, value: @target_owner %>
-  <%= text_input f, :target_repo, value: @target_repo  %>
-  <%= submit "Sync" %>
+  <%= text_input(f, :target_owner, value: @target_owner) %>
+  <%= text_input(f, :target_repo, value: @target_repo) %>
+  <%= submit("Sync") %>
 <% end %>
 
 <%= if length(@repositories) > 0 do %>
   <p><b>Your previously synched repositories:</b></p>
   <%= form_for @conn, Routes.page_path(@conn, :sync_repos), [as: :sync_repos], fn f -> %>
     <b>Copy labels from:</b>
-    <%= text_input f, :source_owner, value: @resync_source_owner %>
-    <%= text_input f, :source_repo, value: @resync_source_repo %>
+    <%= text_input(f, :source_owner, value: @resync_source_owner) %>
+    <%= text_input(f, :source_repo, value: @resync_source_repo) %>
 
     <ul>
-    <%= for {owner, repo} <- @repositories do %>
-      <li><%= "#{owner}/#{repo}" %></li>
-    <% end %>
+      <%= for {owner, repo} <- @repositories do %>
+        <li><%= "#{owner}/#{repo}" %></li>
+      <% end %>
     </ul>
 
-    <%= submit "Re-sync" %>
+    <%= submit("Re-sync") %>
   <% end %>
 <% end %>
-
