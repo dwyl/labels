@@ -16,7 +16,8 @@ defmodule Labels.MixProject do
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,
-        "coveralls.html": :test
+        "coveralls.html": :test,
+        t: :test
       ]
     ]
   end
@@ -76,7 +77,9 @@ defmodule Labels.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"],
-      c: ["coveralls.html"]
+      t: ["test"],
+      c: ["coveralls.html"],
+      s: ["phx.server"]
     ]
   end
 end
