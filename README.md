@@ -147,7 +147,9 @@ Now visit:
 [localhost:4000](http://localhost:4000/)
 in your web browser.
 
+You should see something similar to the following:
 
+<img width="764" alt="labels-app-homepage" src="https://github.com/dwyl/labels/assets/194400/b05146a5-a01a-4fc9-b9df-0b0d66f4dd1d">
 
 <br />
 <div align="center">
