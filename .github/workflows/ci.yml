@@ -24,8 +24,8 @@ jobs:
           --health-retries 5
     strategy:
       matrix:
-        otp: ['24.3.4']
-        elixir: ['1.14.1']
+        otp: ['27.0']
+        elixir: ['1.17.0']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Elixir
