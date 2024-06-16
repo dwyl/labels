@@ -1,110 +1,176 @@
+<div align="center">
+
 # 🏷 Labels
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/dwyl/labels/ci.yml?label=build&style=flat-square&branch=main)
+[![codecov.io](https://img.shields.io/codecov/c/github/dwyl/labels/main.svg?style=flat-square)](http://codecov.io/github/dwyl/labels?branch=main)
+[![contributions welcome](https://img.shields.io/badge/feedback-welcome-brightgreen.svg?style=flat-square)](https://github.com/dwyl/labels/issues)
 [![HitCount](https://hits.dwyl.com/dwyl/labels.svg?style=flat-square)](https://hits.dwyl.com/dwyl/labels)
-[![Elixir CI](https://github.com/dwyl/labels/actions/workflows/ci.yml/badge.svg)](https://github.com/dwyl/labels/actions/workflows/ci.yml)
 
-See it in action: https://labels.fly.dev/
+_Try_ it: [**labels**.fly.dev](https://labels.fly.dev/)
 
-## What?
+</div>
 
-Gui application to copy labels from one repo to another.
+## What? 💭
 
-## Why?
+A Web App to copy `GitHub` labels from one repo to another.
 
-Having a standard list of labels across all of your projects means that you can
-move between repositories quickly and effectively. *However*, manually adding
-labels to a new GitHub repository can become old, ***fast***. This module aims
-to **save you time** by automating the addition of labels to a new project by
-copying them from a selected repo and then transferring them to a target repo.
+## Why? 🤷‍♀️
 
-Our main criteria is that it ***MUST*** be quicker than manually adding labels and will offer a
-[hosted version](https://labels.fly.dev/)
-of the app if you don't want to configure/run the app yourself.
+Having a standard list of `labels` across all of your projects 
+means you can move between repositories quickly 
+and effectively. 
+*However*, manually adding labels 
+to a new `GitHub` repository can become old, ***fast***. <br />
+This app **saves you time** 
+by _automating_ the addition of `labels` 
+to a `new` project,
+copying from a selected repo 
+and creating them on the target repo.
 
-At **`dwyl`** we intensively use labels on issues and pull requests
-to communicate about the status of the work
-for each team member of our project.
-We work remotely and the labels allow us
-to quickly know who took responsibility on an issue
-and what progress they have made.
+Our main criteria is that the tool 
+must be faster than manually adding labels. 
+We offer a
+[hosted version](https://labels.fly.dev)
+of the app 
+if you don't want to configure/run the app yourself.
+
+At **`dwyl`** we use labels a _lot_ 
+on **issues** and **pull requests**
+to ***communicate*** about the status of the work
+on a project.
+We work remotely and the `labels` allow us
+to quickly know what is going on.
 For example we can quickly see
 from the list of issues on a repository
-if someone is working on a specific issue (`in-progress` label),
-if an issue is finished but waiting for review (`in-review` label)
-or if an issue is currently reviewed (`in-review` label),
-see the [list of labels and their description](https://github.com/dwyl/labels#labels).
+if someone is working on a specific issue (**`in-progress`** label),
+if a task is finished but **`awaiting-review`** 
+or **`in-review`**.
+
+> See the complete
+[list of labels and their description](https://github.com/dwyl/labels#labels)
+below.
 
 This process streamlines communication
 and allows us to focus on developing features
 instead of spending time on "chat"
 explaining the status of an issue.
-It also allows us to communicate quickly with our clients
+It also allows us to communicate quickly with our clients & stakeholders
 as they know when to test and approve/reject a feature with the label **`please-test`**.
 
-## Who?
+## Who? 
 
-Any Github user who has created multiple repositories and values their time ⏰
+Any `person` that uses `GitHub` 
+and has multiple repos 
+they want to keep `labels` consistent across. 
+i.e: people that value their time! ⏰
 
 ## How?
 
-A simple and intuitive UI authenticated with GitHub using
+A simple and intuitive UI authenticated 
+with `GitHub` using
 [elixir-auth-github](https://github.com/dwyl/elixir-auth-github/)
-and make requests to the github api on your behalf.
+and make requests 
+to the **`GitHub` API** on your behalf.
 
-After authentication via github login a user will simply have to submit a form with the following fields.
- + Source repo name and owner
- + Target repo name and owner
+After authentication via `GitHub` login 
+simply have to submit a form with the following fields.
+ + Source repo name and owner.
+ + Target repo name and owner.
 
-You can also copy labels again to previously synchronized repositories.
+You can also copy labels again 
+to previously synchronized repositories.
+If you need to make changes.
 
-### What happens to existing labels in target repo?
+### What happens to _existing_ labels in target repo? 🤔
 
-Labels is _non-destructive_.
-If there are existing labels with the same name but a different colour,
+`labels` is _non-destructive_.
+If there are existing labels 
+with the same name but a different colour,
 the colour will change to match the source repo.
-Other than this, it will simply add any labels that don't already exist and
+Other than this, it will simply add any labels that _don't_ already exist and
 won't touch the existing ones.
 
-## Run
+## Run the App! 🏃‍♀️
 
+To run the `labels` app on your `localhost`,
+follow these steps:
 
-#### Config
+### 1. Clone the project ⬇️
 
-Since we are using [elixir-auth-github](https://github.com/dwyl/elixir-auth-github)
-you will need to follow some of their setup to run the project locally.
- + You need to create a new oauth application in your github but please see
-   [create-a-github-app-and-oauth2-credentials](https://github.com/dwyl/elixir-auth-github/#2-create-a-github-app-and-oauth2-credentials-)
- + You will need to create a
+```sh
+git clone git@github.com:dwyl/labels.git && cd labels
+```
+
+### 2. Install dependencies ⏳
+
+```sh
+mix setup
+```
+
+### 3. Configure Environment Variables 📝
+
+> `labels` uses 
+[`elixir-auth-github`](https://github.com/dwyl/elixir-auth-github) 
+for authentication,
+follow the instructions in:
+[create-a-github-app-and-oauth2-credentials](https://github.com/dwyl/elixir-auth-github/#2-create-a-github-app-and-oauth2-credentials-)
+to get your `GitHub` Auth keys.
+ 
+ Create an
  [.env](https://github.com/dwyl/learn-environment-variables)
- file root or project of the form:
+ file root or project with the two variables:
 
 ```sh
 GITHUB_CLIENT_ID=<your-client-id>
 GITHUB_CLIENT_SECRET=<your-client-secret>
 ```
 
-#### To run:
+Once you've added the environment variables to the `.env` file
+and saved the file, 
+run the command:
 
-Enter these commands into your terminal:
-* `git clone https://github.com/dwyl/labels.git`
-* `cd labels`
-* `source .env`
-* `mix deps.get`
-* `mix phx.server`
-* Visit http://localhost:4000/
+```sh
+source .env
+```
 
+That will make your environment variables
+available to the App. 
 
-## Labels
+### 4. Run the App 🚀 
 
-This repository contains our 'master list' of labels used across all dwyl projects:
-[https://www.github.com/dwyl/labels/labels](github.com/dwyl/labels/labels)
+```sh
+mix s
+```
+
+Now visit: 
+[localhost:4000](http://localhost:4000/)
+in your web browser.
+
+You should see something similar to the following:
+
+<img width="764" alt="labels-app-homepage" src="https://github.com/dwyl/labels/assets/194400/b05146a5-a01a-4fc9-b9df-0b0d66f4dd1d">
+
+<br />
+<div align="center">
+
+## _Our_ List Of Labels 📜 🏷️
+
+</div>
+
+This repository is our 
+"[single source of truth](https://en.wikipedia.org/wiki/Single_source_of_truth)" 
+of labels used across all `@dwyl` projects, 
+see: 
+[github.com/dwyl/labels/labels](github.com/dwyl/labels/labels)
 
 An explanation of each can be found below,
-starting with the custom dwyl labels,
+starting with the _custom_ dwyl labels,
 which we use in conjunction with our
 [contributing process/guidelines](https://www.github.com/dwyl/contributing).
 
-Clicking on a label will take you to an issue with further discussion on its existence and meaning:
+Clicking on a label will take you to an issue 
+with further discussion on its existence and meaning:
 
 - [`awaiting-review`](https://github.com/dwyl/labels/issues/49) #f39c12 - added to _issue_ once a PR with its resolution has been assigned to a reviewer (replaces `in-progress`)
 - [`chore`](https://github.com/dwyl/labels/issues/37) #3A2716 - routine tasks that must be done for every project but require little active brain power
@@ -146,10 +212,9 @@ _(NB. if you'd like to see where dwyl is in need of a helping hand, check out ht
 - `wontfix` #ffffff - when an issue won't be addressed (add a comment to the issue as to *why* this is the case
 
 
-## Questions/Suggestions
+## Feedback / Questions / Suggestions 🙏
 
 We hope you find the application useful! We really want to make the process of setting up a repo as fast as possible so hope this helps.
 
 If you need something cleared up, have any requests or want to offer any improvements then please [create an issue](https://github.com/dwyl/labels/issues/new).
-
- **Note** It also would be great to hear, via issue, your thoughts on our existing set of labels plus your own favourites :smiley:
+We love hearing _your_ thoughts. 😊
