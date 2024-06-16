@@ -82,7 +82,7 @@ You can also copy labels again
 to previously synchronized repositories.
 If you need to make changes.
 
-### What happens to _existing_ labels in target repo?
+### What happens to _existing_ labels in target repo? 🤔
 
 `labels` is _non-destructive_.
 If there are existing labels 
