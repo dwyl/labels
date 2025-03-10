@@ -20,9 +20,6 @@ config :labels, LabelsWeb.Endpoint,
   secret_key_base: "PnWb+n7Hf+9gBLcvZTEwjoROwScK00z+pgLZ+9zWDzsJuokb8iTh/ESqLWaPRWMD",
   server: false
 
-# In test we don't send emails.
-config :labels, Labels.Mailer, adapter: Swoosh.Adapters.Test
-
 # Print only warnings and errors during test
 config :logger, level: :warning
 

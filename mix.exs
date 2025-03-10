@@ -53,7 +53,6 @@ defmodule Labels.MixProject do
       {:phoenix_live_dashboard, "~> 0.7.2"},
       {:phoenix_view, "~> 2.0"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
-      {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
